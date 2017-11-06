@@ -2,35 +2,7 @@
 #include <vector>
 #include <map>
 #include <set>
-
-
-auto dijkstra(const std::map<int, std::map<int, int> > &G, int start) {
-    std::map<int, int> d;
-    int INF = 1000000000;
-    for(int i = 0; i < G.size(); i++) {
-        d.insert(std::pair<int, int>(i, INF));
-    }
-    d[start] = 0;
-    std::set<int> used;
-    int current = 0;
-    while(used.size() != G.size()) { // скатано с лекций прошлого года
-        int min_d = INF;
-        for(auto v = d.begin(); v != d.end(); v++) {
-            if(v->second < min_d and used.count(v->first) == 0) {
-                current = v->first;
-                min_d = v->second;
-            }
-        }
-        for(auto neighbour = (G.find(current)->second).begin(); neighbour != (G.find(current)->second).end(); neighbour++) {
-            int l = d[current] + neighbour->second;
-            if(l < d[neighbour->first]) {
-                d[neighbour->first] = l;
-            }
-        }
-        used.insert(used.end(), current);
-    }
-    return d;
-}
+#include <algorithm>
 
 auto input_graph_as_map() {
     int m = 0;
@@ -67,18 +39,73 @@ auto input_graph_as_map() {
 
 void print_graph_map(const std::map<int, std::map<int, int> > & graph) {
     for(auto it = graph.begin(); it != graph.end(); it++) {
+        std::cout << it->first << " : ";
         for(auto inf = (it->second).begin(); inf != (it->second).end(); inf++) {
-            std::cout << it->first << " " << inf->first << " " << inf->second << std::endl;
+            std::cout  << "(" <<inf->first << ", " << inf->second << ") ";
         }
+        std::cout << std::endl;
     }
+    std::cout << std::endl;
+}
+
+auto dijkstra(const std::map<int, std::map<int, int> > &G, int start, int final) {
+    std::map<int, int> d;
+    std::vector<int> p(G.size());
+    int INF = 1000000000;
+    for(int i = 0; i < G.size(); i++) {
+        d.insert(std::pair<int, int>(i, INF));
+    }
+    d[start] = 0;
+    std::set<int> used;
+    int current = 0;
+    while(used.size() != G.size()) { // скатано с лекций прошлого года
+        int min_d = INF;
+        for(auto v = d.begin(); v != d.end(); v++) {
+            if(v->second < min_d and used.count(v->first) == 0) {
+                current = v->first;
+                min_d = v->second;
+            }
+        }
+        for(auto neighbour = (G.find(current)->second).begin(); neighbour != (G.find(current)->second).end(); neighbour++) {
+            int l = d[current] + neighbour->second;
+            if(l < d[neighbour->first]) {
+                d[neighbour->first] = l;
+                p[neighbour->first] = current;
+            }
+        }
+        used.insert(used.end(), current);
+    }
+    // d хранит расстояний от нашей вершины до всех, p хранит предки всех вершин
+    std::vector<int> path;
+    for(int v = final; v!= start; v = p[v]) {
+        path.push_back (v);
+    }
+    path.push_back (start);
+    reverse (path.begin(), path.end());
+    return std::pair<std::map<int, int>, std::vector<int> >(d, path); // d хранит расстояний от нашей вершины до всех, path хранит кратчайший путь между вершиной start и final
+}
+
+void print_short_way(const std::map<int, std::map<int, int> > &G, int start, int final) {
+    auto path = dijkstra(G, start, final).second;
+    std::cout << "The shortest way from vertex " << start << " to vertex " << final << " is: ";
+    for(auto it = path.begin(); it != path.end(); it++) {
+        std::cout <<*it << " ";
+    }
+    std::cout << std::endl;
+}
+
+void print_short_distances(const std::map<int, std::map<int, int> > &G, int start) {
+    auto dist = dijkstra(G, start, 0).first;
+    for(auto it = dist.begin(); it != dist.end(); it++) {
+        std::cout << "The distance of the shortest way from vertex 0 to vertex " <<it->first << " is " << it->second << std::endl;
+    }
+    std::cout << std::endl;
 }
 
 int main() {
     auto g = input_graph_as_map();
     print_graph_map(g);
-    auto res = dijkstra(g, 0);
-    for(auto it = res.begin(); it != res.end(); it++) {
-        std::cout << it->first << " " << it->second << std::endl;
-    }
+    print_short_way(g, 0, 4);
+    print_short_distances(g, 0);
     return 0;
 }
