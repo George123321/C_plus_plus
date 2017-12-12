@@ -1,0 +1,9 @@
+Exception: STATUS_ACCESS_VIOLATION at eip=6E83E1E9
+eax=00000004 ebx=0065CC3C ecx=00009761 edx=0065CBF0 esi=20041CD0 edi=20041CC4
+ebp=0065CC18 esp=0065CBB0 program=C:\Users\gosha.LENOVO-PC\Desktop\github_projects\C_plus_plus\Debug\contest9.exe, pid 3512, thread main
+cs=001B ds=0023 es=0023 fs=003B gs=0000 ss=0023
+Stack trace:
+Frame     Function  Args
+0065CC18  6E83E1E9 (00000001, 0065CC3C, 200280F0, 61007A02)
+0065CD18  61007A67 (00000000, 0065CD74, 61006A60, 00000000)
+End of stack trace
