@@ -268,6 +268,12 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 //Single output directory for building all executables.
 EXECUTABLE_OUTPUT_PATH:PATH=
 
+//Value Computed by CMake
+Final_Test_BINARY_DIR:STATIC=C:/Users/George/Desktop/git_projects/C_plus_plus/cmake-build-debug/Final_Test
+
+//Value Computed by CMake
+Final_Test_SOURCE_DIR:STATIC=C:/Users/George/Desktop/git_projects/C_plus_plus/Final_Test
+
 //Enable installation of googlemock. (Projects embedding googlemock
 // may want to turn this OFF.)
 INSTALL_GMOCK:BOOL=ON
@@ -359,10 +365,10 @@ ready_to_test_BINARY_DIR:STATIC=C:/Users/George/Desktop/git_projects/C_plus_plus
 ready_to_test_SOURCE_DIR:STATIC=C:/Users/George/Desktop/git_projects/C_plus_plus/ready_to_test
 
 //Value Computed by CMake
-tests_BINARY_DIR:STATIC=C:/Users/George/Desktop/git_projects/C_plus_plus/cmake-build-debug/ready_to_test
+tests_BINARY_DIR:STATIC=C:/Users/George/Desktop/git_projects/C_plus_plus/cmake-build-debug/Final_Test
 
 //Value Computed by CMake
-tests_SOURCE_DIR:STATIC=C:/Users/George/Desktop/git_projects/C_plus_plus/ready_to_test
+tests_SOURCE_DIR:STATIC=C:/Users/George/Desktop/git_projects/C_plus_plus/Final_Test
 
 //Dependencies for target
 vector_LIB_DEPENDS:STATIC=
@@ -496,7 +502,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=7
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

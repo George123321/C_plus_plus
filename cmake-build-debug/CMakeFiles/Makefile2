@@ -105,7 +105,7 @@ googletest/googlemock/preinstall: googletest/googlemock/gtest/preinstall
 googletest/googlemock/CMakeFiles/gmock_main.dir/all:
 	$(MAKE) -f googletest\googlemock\CMakeFiles\gmock_main.dir\build.make googletest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f googletest\googlemock\CMakeFiles\gmock_main.dir\build.make googletest/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\George\Desktop\git_projects\C_plus_plus\cmake-build-debug\CMakeFiles --progress-num=8,9,10,11 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\George\Desktop\git_projects\C_plus_plus\cmake-build-debug\CMakeFiles --progress-num=12,13,14,15 "Built target gmock_main"
 .PHONY : googletest/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Include target in all.
@@ -142,7 +142,7 @@ clean: googletest/googlemock/CMakeFiles/gmock_main.dir/clean
 googletest/googlemock/CMakeFiles/gmock.dir/all:
 	$(MAKE) -f googletest\googlemock\CMakeFiles\gmock.dir\build.make googletest/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) -f googletest\googlemock\CMakeFiles\gmock.dir\build.make googletest/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\George\Desktop\git_projects\C_plus_plus\cmake-build-debug\CMakeFiles --progress-num=5,6,7 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\George\Desktop\git_projects\C_plus_plus\cmake-build-debug\CMakeFiles --progress-num=9,10,11 "Built target gmock"
 .PHONY : googletest/googlemock/CMakeFiles/gmock.dir/all
 
 # Include target in all.
@@ -199,7 +199,7 @@ googletest/googlemock/gtest/preinstall:
 googletest/googlemock/gtest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f googletest\googlemock\gtest\CMakeFiles\gtest.dir\build.make googletest/googlemock/gtest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f googletest\googlemock\gtest\CMakeFiles\gtest.dir\build.make googletest/googlemock/gtest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\George\Desktop\git_projects\C_plus_plus\cmake-build-debug\CMakeFiles --progress-num=12,13 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\George\Desktop\git_projects\C_plus_plus\cmake-build-debug\CMakeFiles --progress-num=16,17 "Built target gtest"
 .PHONY : googletest/googlemock/gtest/CMakeFiles/gtest.dir/all
 
 # Include target in all.
@@ -236,7 +236,7 @@ clean: googletest/googlemock/gtest/CMakeFiles/gtest.dir/clean
 googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/all: googletest/googlemock/gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f googletest\googlemock\gtest\CMakeFiles\gtest_main.dir\build.make googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f googletest\googlemock\gtest\CMakeFiles\gtest_main.dir\build.make googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\George\Desktop\git_projects\C_plus_plus\cmake-build-debug\CMakeFiles --progress-num=14,15 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\George\Desktop\git_projects\C_plus_plus\cmake-build-debug\CMakeFiles --progress-num=18,19 "Built target gtest_main"
 .PHONY : googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/all
 
 # Include target in all.
@@ -291,7 +291,7 @@ Lab13/preinstall:
 Lab13/CMakeFiles/Lab13_test.dir/all:
 	$(MAKE) -f Lab13\CMakeFiles\Lab13_test.dir\build.make Lab13/CMakeFiles/Lab13_test.dir/depend
 	$(MAKE) -f Lab13\CMakeFiles\Lab13_test.dir\build.make Lab13/CMakeFiles/Lab13_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\George\Desktop\git_projects\C_plus_plus\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target Lab13_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\George\Desktop\git_projects\C_plus_plus\cmake-build-debug\CMakeFiles --progress-num=3,4 "Built target Lab13_test"
 .PHONY : Lab13/CMakeFiles/Lab13_test.dir/all
 
 # Include target in all.
@@ -346,7 +346,7 @@ contest9/preinstall:
 contest9/CMakeFiles/contest9.dir/all:
 	$(MAKE) -f contest9\CMakeFiles\contest9.dir\build.make contest9/CMakeFiles/contest9.dir/depend
 	$(MAKE) -f contest9\CMakeFiles\contest9.dir\build.make contest9/CMakeFiles/contest9.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\George\Desktop\git_projects\C_plus_plus\cmake-build-debug\CMakeFiles --progress-num=3,4 "Built target contest9"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\George\Desktop\git_projects\C_plus_plus\cmake-build-debug\CMakeFiles --progress-num=5,6 "Built target contest9"
 .PHONY : contest9/CMakeFiles/contest9.dir/all
 
 # Include target in all.
@@ -403,7 +403,7 @@ ready_to_test/preinstall:
 ready_to_test/CMakeFiles/ready_to_test.dir/all:
 	$(MAKE) -f ready_to_test\CMakeFiles\ready_to_test.dir\build.make ready_to_test/CMakeFiles/ready_to_test.dir/depend
 	$(MAKE) -f ready_to_test\CMakeFiles\ready_to_test.dir\build.make ready_to_test/CMakeFiles/ready_to_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\George\Desktop\git_projects\C_plus_plus\cmake-build-debug\CMakeFiles --progress-num=16,17 "Built target ready_to_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\George\Desktop\git_projects\C_plus_plus\cmake-build-debug\CMakeFiles --progress-num=20,21 "Built target ready_to_test"
 .PHONY : ready_to_test/CMakeFiles/ready_to_test.dir/all
 
 # Include target in all.
@@ -441,7 +441,7 @@ ready_to_test/CMakeFiles/ready_to_test-tests.dir/all: googletest/googlemock/gtes
 ready_to_test/CMakeFiles/ready_to_test-tests.dir/all: googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/all
 	$(MAKE) -f ready_to_test\CMakeFiles\ready_to_test-tests.dir\build.make ready_to_test/CMakeFiles/ready_to_test-tests.dir/depend
 	$(MAKE) -f ready_to_test\CMakeFiles\ready_to_test-tests.dir\build.make ready_to_test/CMakeFiles/ready_to_test-tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\George\Desktop\git_projects\C_plus_plus\cmake-build-debug\CMakeFiles --progress-num=18,19 "Built target ready_to_test-tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\George\Desktop\git_projects\C_plus_plus\cmake-build-debug\CMakeFiles --progress-num=22,23 "Built target ready_to_test-tests"
 .PHONY : ready_to_test/CMakeFiles/ready_to_test-tests.dir/all
 
 # Include target in all.
@@ -468,6 +468,101 @@ ready_to_test/CMakeFiles/ready_to_test-tests.dir/clean:
 
 # clean rule for target.
 clean: ready_to_test/CMakeFiles/ready_to_test-tests.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory Final_Test
+
+# Convenience name for "all" pass in the directory.
+Final_Test/all: Final_Test/CMakeFiles/final_test-tests.dir/all
+Final_Test/all: Final_Test/CMakeFiles/Final_Test.dir/all
+
+.PHONY : Final_Test/all
+
+# Convenience name for "clean" pass in the directory.
+Final_Test/clean: Final_Test/CMakeFiles/final_test-tests.dir/clean
+Final_Test/clean: Final_Test/CMakeFiles/Final_Test.dir/clean
+
+.PHONY : Final_Test/clean
+
+# Convenience name for "preinstall" pass in the directory.
+Final_Test/preinstall:
+
+.PHONY : Final_Test/preinstall
+
+#=============================================================================
+# Target rules for target Final_Test/CMakeFiles/final_test-tests.dir
+
+# All Build rule for target.
+Final_Test/CMakeFiles/final_test-tests.dir/all: googletest/googlemock/gtest/CMakeFiles/gtest.dir/all
+Final_Test/CMakeFiles/final_test-tests.dir/all: googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/all
+	$(MAKE) -f Final_Test\CMakeFiles\final_test-tests.dir\build.make Final_Test/CMakeFiles/final_test-tests.dir/depend
+	$(MAKE) -f Final_Test\CMakeFiles\final_test-tests.dir\build.make Final_Test/CMakeFiles/final_test-tests.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\George\Desktop\git_projects\C_plus_plus\cmake-build-debug\CMakeFiles --progress-num=7,8 "Built target final_test-tests"
+.PHONY : Final_Test/CMakeFiles/final_test-tests.dir/all
+
+# Include target in all.
+all: Final_Test/CMakeFiles/final_test-tests.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+Final_Test/CMakeFiles/final_test-tests.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\George\Desktop\git_projects\C_plus_plus\cmake-build-debug\CMakeFiles 6
+	$(MAKE) -f CMakeFiles\Makefile2 Final_Test/CMakeFiles/final_test-tests.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\George\Desktop\git_projects\C_plus_plus\cmake-build-debug\CMakeFiles 0
+.PHONY : Final_Test/CMakeFiles/final_test-tests.dir/rule
+
+# Convenience name for target.
+final_test-tests: Final_Test/CMakeFiles/final_test-tests.dir/rule
+
+.PHONY : final_test-tests
+
+# clean rule for target.
+Final_Test/CMakeFiles/final_test-tests.dir/clean:
+	$(MAKE) -f Final_Test\CMakeFiles\final_test-tests.dir\build.make Final_Test/CMakeFiles/final_test-tests.dir/clean
+.PHONY : Final_Test/CMakeFiles/final_test-tests.dir/clean
+
+# clean rule for target.
+clean: Final_Test/CMakeFiles/final_test-tests.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target Final_Test/CMakeFiles/Final_Test.dir
+
+# All Build rule for target.
+Final_Test/CMakeFiles/Final_Test.dir/all:
+	$(MAKE) -f Final_Test\CMakeFiles\Final_Test.dir\build.make Final_Test/CMakeFiles/Final_Test.dir/depend
+	$(MAKE) -f Final_Test\CMakeFiles\Final_Test.dir\build.make Final_Test/CMakeFiles/Final_Test.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\George\Desktop\git_projects\C_plus_plus\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target Final_Test"
+.PHONY : Final_Test/CMakeFiles/Final_Test.dir/all
+
+# Include target in all.
+all: Final_Test/CMakeFiles/Final_Test.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+Final_Test/CMakeFiles/Final_Test.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\George\Desktop\git_projects\C_plus_plus\cmake-build-debug\CMakeFiles 2
+	$(MAKE) -f CMakeFiles\Makefile2 Final_Test/CMakeFiles/Final_Test.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\George\Desktop\git_projects\C_plus_plus\cmake-build-debug\CMakeFiles 0
+.PHONY : Final_Test/CMakeFiles/Final_Test.dir/rule
+
+# Convenience name for target.
+Final_Test: Final_Test/CMakeFiles/Final_Test.dir/rule
+
+.PHONY : Final_Test
+
+# clean rule for target.
+Final_Test/CMakeFiles/Final_Test.dir/clean:
+	$(MAKE) -f Final_Test\CMakeFiles\Final_Test.dir\build.make Final_Test/CMakeFiles/Final_Test.dir/clean
+.PHONY : Final_Test/CMakeFiles/Final_Test.dir/clean
+
+# clean rule for target.
+clean: Final_Test/CMakeFiles/Final_Test.dir/clean
 
 .PHONY : clean
 

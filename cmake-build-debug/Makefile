@@ -270,6 +270,32 @@ ready_to_test-tests/fast:
 	$(MAKE) -f ready_to_test\CMakeFiles\ready_to_test-tests.dir\build.make ready_to_test/CMakeFiles/ready_to_test-tests.dir/build
 .PHONY : ready_to_test-tests/fast
 
+#=============================================================================
+# Target rules for targets named final_test-tests
+
+# Build rule for target.
+final_test-tests: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 final_test-tests
+.PHONY : final_test-tests
+
+# fast build rule for target.
+final_test-tests/fast:
+	$(MAKE) -f Final_Test\CMakeFiles\final_test-tests.dir\build.make Final_Test/CMakeFiles/final_test-tests.dir/build
+.PHONY : final_test-tests/fast
+
+#=============================================================================
+# Target rules for targets named Final_Test
+
+# Build rule for target.
+Final_Test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 Final_Test
+.PHONY : Final_Test
+
+# fast build rule for target.
+Final_Test/fast:
+	$(MAKE) -f Final_Test\CMakeFiles\Final_Test.dir\build.make Final_Test/CMakeFiles/Final_Test.dir/build
+.PHONY : Final_Test/fast
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -291,6 +317,8 @@ help:
 	@echo ... contest9
 	@echo ... ready_to_test
 	@echo ... ready_to_test-tests
+	@echo ... final_test-tests
+	@echo ... Final_Test
 .PHONY : help
 
 

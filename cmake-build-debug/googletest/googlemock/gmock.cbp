@@ -5,7 +5,7 @@
 		<Option title="gmock"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\Lab13\;CMake Files\googletest\;CMake Files\googletest\googlemock\;CMake Files\googletest\googlemock\cmake\;CMake Files\googletest\googletest\;CMake Files\googletest\googletest\cmake\;CMake Files\contest9\;CMake Files\ready_to_test\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\Lab13\;CMake Files\googletest\;CMake Files\googletest\googlemock\;CMake Files\googletest\googlemock\cmake\;CMake Files\googletest\googletest\;CMake Files\googletest\googletest\cmake\;CMake Files\contest9\;CMake Files\ready_to_test\;CMake Files\Final_Test\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="C:/Users/George/Desktop/git_projects/C_plus_plus/cmake-build-debug/googletest/googlemock"/>
@@ -334,6 +334,12 @@
 		</Unit>
 		<Unit filename="C:/Users/George/Desktop/git_projects/C_plus_plus/ready_to_test/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\ready_to_test\"/>
+		</Unit>
+		<Unit filename="C:/Users/George/Desktop/git_projects/C_plus_plus/Final_Test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Final_Test\"/>
+		</Unit>
+		<Unit filename="C:/Users/George/Desktop/git_projects/C_plus_plus/Final_Test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Final_Test\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

@@ -44,4 +44,8 @@ public:
     }
 };
 
+template<typename T>
+std::ostream &operator<<(std::ostream &stream, Vector2D<T>& a) {
+    return stream << a.getX() << " " << a.getY();
+}
 #endif //PROJECT_VECTOR_H

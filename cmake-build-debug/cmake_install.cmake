@@ -33,6 +33,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("C:/Users/George/Desktop/git_projects/C_plus_plus/cmake-build-debug/Lab13/cmake_install.cmake")
   include("C:/Users/George/Desktop/git_projects/C_plus_plus/cmake-build-debug/contest9/cmake_install.cmake")
   include("C:/Users/George/Desktop/git_projects/C_plus_plus/cmake-build-debug/ready_to_test/cmake_install.cmake")
+  include("C:/Users/George/Desktop/git_projects/C_plus_plus/cmake-build-debug/Final_Test/cmake_install.cmake")
 
 endif()
 

@@ -55,3 +55,12 @@ C:/Users/George/Desktop/git_projects/C_plus_plus/cmake-build-debug/ready_to_test
 C:/Users/George/Desktop/git_projects/C_plus_plus/cmake-build-debug/ready_to_test/CMakeFiles/edit_cache.dir
 C:/Users/George/Desktop/git_projects/C_plus_plus/cmake-build-debug/ready_to_test/CMakeFiles/list_install_components.dir
 C:/Users/George/Desktop/git_projects/C_plus_plus/cmake-build-debug/ready_to_test/CMakeFiles/install/strip.dir
+C:/Users/George/Desktop/git_projects/C_plus_plus/cmake-build-debug/Final_Test/CMakeFiles/final_test-tests.dir
+C:/Users/George/Desktop/git_projects/C_plus_plus/cmake-build-debug/Final_Test/CMakeFiles/Final_Test.dir
+C:/Users/George/Desktop/git_projects/C_plus_plus/cmake-build-debug/Final_Test/CMakeFiles/rebuild_cache.dir
+C:/Users/George/Desktop/git_projects/C_plus_plus/cmake-build-debug/Final_Test/CMakeFiles/test.dir
+C:/Users/George/Desktop/git_projects/C_plus_plus/cmake-build-debug/Final_Test/CMakeFiles/install/local.dir
+C:/Users/George/Desktop/git_projects/C_plus_plus/cmake-build-debug/Final_Test/CMakeFiles/install.dir
+C:/Users/George/Desktop/git_projects/C_plus_plus/cmake-build-debug/Final_Test/CMakeFiles/edit_cache.dir
+C:/Users/George/Desktop/git_projects/C_plus_plus/cmake-build-debug/Final_Test/CMakeFiles/list_install_components.dir
+C:/Users/George/Desktop/git_projects/C_plus_plus/cmake-build-debug/Final_Test/CMakeFiles/install/strip.dir
