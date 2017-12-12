@@ -19,7 +19,7 @@
 			</Target>
 			<Target title="contest9">
 				<Option output="C:/Users/George/Desktop/git_projects/C_plus_plus/cmake-build-debug/contest9/contest9.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir=""/>
+				<Option working_dir="C:/Users/George/Desktop/git_projects/C_plus_plus/cmake-build-debug/contest9"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -43,7 +43,7 @@
 			</Target>
 			<Target title="contest9/fast">
 				<Option output="C:/Users/George/Desktop/git_projects/C_plus_plus/cmake-build-debug/contest9/contest9.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir=""/>
+				<Option working_dir="C:/Users/George/Desktop/git_projects/C_plus_plus/cmake-build-debug/contest9"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
