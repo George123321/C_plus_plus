@@ -1,0 +1,3 @@
+C:/Users/George/Desktop/git_projects/C_plus_plus/ready_to_test/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/George/Desktop/git_projects/C_plus_plus/ready_to_test/cmake-build-debug/CMakeFiles/ready_to_test.dir
+C:/Users/George/Desktop/git_projects/C_plus_plus/ready_to_test/cmake-build-debug/CMakeFiles/edit_cache.dir

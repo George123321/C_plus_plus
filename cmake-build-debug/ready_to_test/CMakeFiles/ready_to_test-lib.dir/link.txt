@@ -1,0 +1,2 @@
+C:\MinGW\bin\ar.exe qc libready_to_test-libd.a  CMakeFiles/ready_to_test-lib.dir/main.cpp.obj
+C:\MinGW\bin\ranlib.exe libready_to_test-libd.a
