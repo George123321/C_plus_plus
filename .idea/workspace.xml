@@ -21,88 +21,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ffef1c6e-a861-4343-b8a8-2d8b236b915b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Final_Test/Final_Test-tests.cpp" afterPath="$PROJECT_DIR$/Final_Test/Final_Test-tests.cpp" />
       <change beforePath="$PROJECT_DIR$/Final_Test/class.h" afterPath="$PROJECT_DIR$/Final_Test/class.h" />
-      <change beforePath="$PROJECT_DIR$/Final_Test/main.cpp" afterPath="$PROJECT_DIR$/Final_Test/main.cpp" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.8.2/CMakeCCompiler.cmake" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.8.2/CMakeCXXCompiler.cmake" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.8.2/CMakeDetermineCompilerABI_C.bin" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.8.2/CMakeDetermineCompilerABI_CXX.bin" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.8.2/CMakeRCCompiler.cmake" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.8.2/CMakeSystem.cmake" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.8.2/CompilerIdC/CMakeCCompilerId.c" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.8.2/CompilerIdC/a.exe" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.8.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.8.2/CompilerIdCXX/CMakeCXXCompilerId.o" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeError.log" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/CMakeDirectoryInformation.cmake" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/Final_Test.dir/CXX.includecache" afterPath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/Final_Test.dir/CXX.includecache" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/Final_Test.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/Final_Test.dir/build.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/Final_Test.dir/depend.internal" afterPath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/Final_Test.dir/depend.internal" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/Final_Test.dir/depend.make" afterPath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/Final_Test.dir/depend.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/Final_Test.dir/flags.make" afterPath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/Final_Test.dir/flags.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/Final_Test.dir/main.cpp.obj" afterPath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/Final_Test.dir/main.cpp.obj" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/Final_Test.dir/objects.a" afterPath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/Final_Test.dir/objects.a" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/final_test-tests.dir/Final_Test-tests.cpp.obj" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/final_test-tests.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/final_test-tests.dir/build.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/final_test-tests.dir/depend.internal" afterPath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/final_test-tests.dir/depend.internal" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/final_test-tests.dir/depend.make" afterPath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/final_test-tests.dir/depend.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/final_test-tests.dir/flags.make" afterPath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/final_test-tests.dir/flags.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/final_test-tests.dir/objects.a" afterPath="$PROJECT_DIR$/cmake-build-debug/Final_Test/CMakeFiles/final_test-tests.dir/objects.a" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Final_Test/Final_Test.exe" afterPath="$PROJECT_DIR$/cmake-build-debug/Final_Test/Final_Test.exe" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Final_Test/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/Final_Test/Makefile" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Final_Test/final_test-tests.exe" afterPath="$PROJECT_DIR$/cmake-build-debug/Final_Test/final_test-tests.exe" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Lab13/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/Lab13/CMakeFiles/CMakeDirectoryInformation.cmake" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Lab13/CMakeFiles/Lab13_test.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/Lab13/CMakeFiles/Lab13_test.dir/build.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Lab13/CMakeFiles/Lab13_test.dir/flags.make" afterPath="$PROJECT_DIR$/cmake-build-debug/Lab13/CMakeFiles/Lab13_test.dir/flags.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Lab13/Lab13_test.cbp" afterPath="$PROJECT_DIR$/cmake-build-debug/Lab13/Lab13_test.cbp" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Lab13/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/Lab13/Makefile" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Project.cbp" afterPath="$PROJECT_DIR$/cmake-build-debug/Project.cbp" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/contest9/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/contest9/CMakeFiles/CMakeDirectoryInformation.cmake" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/contest9/CMakeFiles/contest9.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/contest9/CMakeFiles/contest9.dir/build.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/contest9/CMakeFiles/contest9.dir/flags.make" afterPath="$PROJECT_DIR$/cmake-build-debug/contest9/CMakeFiles/contest9.dir/flags.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/contest9/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/contest9/Makefile" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/contest9/contest9.cbp" afterPath="$PROJECT_DIR$/cmake-build-debug/contest9/contest9.cbp" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/googletest/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/googletest/CMakeFiles/CMakeDirectoryInformation.cmake" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/googletest/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/googletest/Makefile" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/CMakeFiles/CMakeDirectoryInformation.cmake" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/CMakeFiles/gmock.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/CMakeFiles/gmock.dir/build.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/CMakeFiles/gmock.dir/flags.make" afterPath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/CMakeFiles/gmock.dir/flags.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/CMakeFiles/gmock_main.dir/flags.make" afterPath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/CMakeFiles/gmock_main.dir/flags.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/Makefile" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/gtest/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/gtest/CMakeFiles/CMakeDirectoryInformation.cmake" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/gtest/CMakeFiles/gtest.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/gtest/CMakeFiles/gtest.dir/build.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/gtest/CMakeFiles/gtest.dir/depend.internal" afterPath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/gtest/CMakeFiles/gtest.dir/depend.internal" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/gtest/CMakeFiles/gtest.dir/depend.make" afterPath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/gtest/CMakeFiles/gtest.dir/depend.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/gtest/CMakeFiles/gtest.dir/flags.make" afterPath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/gtest/CMakeFiles/gtest.dir/flags.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/build.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/depend.internal" afterPath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/depend.internal" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/depend.make" afterPath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/depend.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/flags.make" afterPath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/flags.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/gtest/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/gtest/Makefile" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/gtest/libgtest_maind.a" afterPath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/gtest/libgtest_maind.a" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/gtest/libgtestd.a" afterPath="$PROJECT_DIR$/cmake-build-debug/googletest/googlemock/gtest/libgtestd.a" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/ready_to_test/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/ready_to_test/CMakeFiles/CMakeDirectoryInformation.cmake" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/ready_to_test/CMakeFiles/ready_to_test-tests.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/ready_to_test/CMakeFiles/ready_to_test-tests.dir/build.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/ready_to_test/CMakeFiles/ready_to_test-tests.dir/flags.make" afterPath="$PROJECT_DIR$/cmake-build-debug/ready_to_test/CMakeFiles/ready_to_test-tests.dir/flags.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/ready_to_test/CMakeFiles/ready_to_test.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/ready_to_test/CMakeFiles/ready_to_test.dir/build.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/ready_to_test/CMakeFiles/ready_to_test.dir/depend.internal" afterPath="$PROJECT_DIR$/cmake-build-debug/ready_to_test/CMakeFiles/ready_to_test.dir/depend.internal" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/ready_to_test/CMakeFiles/ready_to_test.dir/depend.make" afterPath="$PROJECT_DIR$/cmake-build-debug/ready_to_test/CMakeFiles/ready_to_test.dir/depend.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/ready_to_test/CMakeFiles/ready_to_test.dir/flags.make" afterPath="$PROJECT_DIR$/cmake-build-debug/ready_to_test/CMakeFiles/ready_to_test.dir/flags.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/ready_to_test/CMakeFiles/ready_to_test.dir/objects.a" afterPath="$PROJECT_DIR$/cmake-build-debug/ready_to_test/CMakeFiles/ready_to_test.dir/objects.a" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/ready_to_test/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/ready_to_test/Makefile" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/ready_to_test/ready_to_test.exe" afterPath="$PROJECT_DIR$/cmake-build-debug/ready_to_test/ready_to_test.exe" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/ready_to_test/tests.cbp" afterPath="$PROJECT_DIR$/cmake-build-debug/ready_to_test/tests.cbp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -115,7 +35,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Final_Test/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="231">
@@ -130,21 +50,21 @@
       <file leaf-file-name="test.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Final_Test/test.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="5" />
+            <state relative-caret-position="84">
+              <caret line="4" column="5" lean-forward="false" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="class.h" pinned="false" current-in-tab="true">
+      <file leaf-file-name="class.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Final_Test/class.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="159" column="0" lean-forward="true" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
+            <state relative-caret-position="368">
+              <caret line="172" column="33" lean-forward="false" selection-start-line="172" selection-start-column="33" selection-end-line="172" selection-end-column="33" />
               <folding>
                 <element signature="e#117#129#0" expanded="true" />
-                <element signature="e#4179#4191#0" expanded="true" />
+                <element signature="e#4719#4731#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -153,8 +73,8 @@
       <file leaf-file-name="Final_Test-tests.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Final_Test/Final_Test-tests.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="185" column="29" lean-forward="false" selection-start-line="185" selection-start-column="29" selection-end-line="185" selection-end-column="29" />
+            <state relative-caret-position="224">
+              <caret line="177" column="23" lean-forward="false" selection-start-line="177" selection-start-column="23" selection-end-line="177" selection-end-column="23" />
               <folding>
                 <element signature="e#43#67#0" expanded="true" />
               </folding>
@@ -178,8 +98,8 @@
         <option value="$PROJECT_DIR$/ready_to_test/vector.h" />
         <option value="$PROJECT_DIR$/Final_Test/test.txt" />
         <option value="$PROJECT_DIR$/Final_Test/main.cpp" />
-        <option value="$PROJECT_DIR$/Final_Test/Final_Test-tests.cpp" />
         <option value="$PROJECT_DIR$/Final_Test/class.h" />
+        <option value="$PROJECT_DIR$/Final_Test/Final_Test-tests.cpp" />
       </list>
     </option>
   </component>
@@ -322,14 +242,11 @@
       <workItem from="1513070923103" duration="184000" />
       <workItem from="1513071122022" duration="527000" />
       <workItem from="1513071840413" duration="10901000" />
-      <workItem from="1513083800081" duration="1810000" />
+      <workItem from="1513083800081" duration="2126000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Final_Test-tests - 2017.12.12 at 15h 19m 51s.xml">
-      <configuration name="Final_Test-tests" configurationId="CMakeGoogleTestRunConfigurationType" />
-    </history-entry>
     <history-entry file="Final_Test-tests - 2017.12.12 at 16h 07m 48s.xml">
       <configuration name="Final_Test-tests" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
@@ -357,9 +274,12 @@
     <history-entry file="Final_Test-tests - 2017.12.12 at 16h 32m 33s.xml">
       <configuration name="Final_Test-tests" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
+    <history-entry file="Final_Test-tests - 2017.12.12 at 16h 38m 53s.xml">
+      <configuration name="Final_Test-tests" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19329000" />
+    <option name="totallyTimeSpent" value="19645000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -371,7 +291,7 @@
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3281768" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3281768" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -436,7 +356,7 @@
           <option name="timeStamp" value="73" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="74" />
+      <option name="time" value="75" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeGoogleTestRunConfigurationType">
@@ -539,7 +459,7 @@
           <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
           <folding>
             <element signature="e#117#129#0" expanded="true" />
-            <element signature="e#4179#4191#0" expanded="true" />
+            <element signature="e#4719#4731#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -560,7 +480,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#117#129#0" expanded="true" />
-            <element signature="e#4179#4191#0" expanded="true" />
+            <element signature="e#4719#4731#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -591,7 +511,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#117#129#0" expanded="true" />
-            <element signature="e#4179#4191#0" expanded="true" />
+            <element signature="e#4719#4731#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -622,7 +542,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#117#129#0" expanded="true" />
-            <element signature="e#4179#4191#0" expanded="true" />
+            <element signature="e#4719#4731#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -714,41 +634,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Final_Test/main.cpp">
+    <entry file="file://$PROJECT_DIR$/Final_Test/test.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="84">
+          <caret line="4" column="5" lean-forward="false" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Final_Test/test.txt">
+    <entry file="file://$PROJECT_DIR$/Final_Test/class.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="5" />
-          <folding />
+        <state relative-caret-position="368">
+          <caret line="172" column="33" lean-forward="false" selection-start-line="172" selection-start-column="33" selection-end-line="172" selection-end-column="33" />
+          <folding>
+            <element signature="e#117#129#0" expanded="true" />
+            <element signature="e#4719#4731#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Final_Test/Final_Test-tests.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="185" column="29" lean-forward="false" selection-start-line="185" selection-start-column="29" selection-end-line="185" selection-end-column="29" />
+        <state relative-caret-position="224">
+          <caret line="177" column="23" lean-forward="false" selection-start-line="177" selection-start-column="23" selection-end-line="177" selection-end-column="23" />
           <folding>
             <element signature="e#43#67#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Final_Test/class.h">
+    <entry file="file://$PROJECT_DIR$/Final_Test/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="159" column="0" lean-forward="true" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
+        <state relative-caret-position="231">
+          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
           <folding>
-            <element signature="e#117#129#0" expanded="true" />
-            <element signature="e#4179#4191#0" expanded="true" />
+            <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>

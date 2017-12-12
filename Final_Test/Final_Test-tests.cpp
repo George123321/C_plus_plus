@@ -186,3 +186,18 @@ TEST(Matrix, pow) {
     Matrix<double> c = a^(2.0);
     EXPECT_EQ(c.get_elem(1, 2), 36);
 }
+
+TEST(Matrix, bool) {
+    Matrix<double> a(2, 3);
+    int p = 0;
+    for(int i =0; i<2; i++) {
+        for(int j =0; j<3; j++) {
+            p++;
+            a.set_matrix(i, j, p);
+        }
+    }
+
+    Matrix<double> c = a;
+    EXPECT_TRUE(a == c);
+    EXPECT_FALSE(a != c);
+}
