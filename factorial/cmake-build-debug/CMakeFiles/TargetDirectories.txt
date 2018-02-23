@@ -1,0 +1,3 @@
+C:/Users/George/Desktop/git_projects/C_plus_plus/factorial/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/George/Desktop/git_projects/C_plus_plus/factorial/cmake-build-debug/CMakeFiles/factorial.dir
+C:/Users/George/Desktop/git_projects/C_plus_plus/factorial/cmake-build-debug/CMakeFiles/rebuild_cache.dir

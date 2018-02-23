@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="DV_HW"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\1_a_i\;CMake Files\1_a_ii\;CMake Files\1_a_iii\;CMake Files\1_b_i\;CMake Files\1_b_ii\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DV_HW_1_1">
+				<Option output="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_i/DV_HW_1_1.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_i"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_i/Makefile&quot;  VERBOSE=1 DV_HW_1_1"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_i/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_i/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_i/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DV_HW_1_1/fast">
+				<Option output="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_i/DV_HW_1_1.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_i"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_i/Makefile&quot;  VERBOSE=1 DV_HW_1_1/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_i/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_i/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_i/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DV_HW_1_2">
+				<Option output="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_i/DV_HW_1_2.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_i"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_i/Makefile&quot;  VERBOSE=1 DV_HW_1_2"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_i/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_i/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_i/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DV_HW_1_2/fast">
+				<Option output="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_i/DV_HW_1_2.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_i"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_i/Makefile&quot;  VERBOSE=1 DV_HW_1_2/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_i/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_i/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_i/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DV_HW_2">
+				<Option output="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_ii/DV_HW_2.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_ii"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_ii/Makefile&quot;  VERBOSE=1 DV_HW_2"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_ii/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_ii/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_ii/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DV_HW_2/fast">
+				<Option output="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_ii/DV_HW_2.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_ii"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_ii/Makefile&quot;  VERBOSE=1 DV_HW_2/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_ii/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_ii/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_ii/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DV_HW_3">
+				<Option output="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_iii/DV_HW_3.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_iii"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_iii/Makefile&quot;  VERBOSE=1 DV_HW_3"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_iii/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_iii/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_iii/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DV_HW_3/fast">
+				<Option output="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_iii/DV_HW_3.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_iii"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_iii/Makefile&quot;  VERBOSE=1 DV_HW_3/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_iii/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_iii/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_iii/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DV_HW_1_b_i">
+				<Option output="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_i/DV_HW_1_b_i.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_i"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_i/Makefile&quot;  VERBOSE=1 DV_HW_1_b_i"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_i/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_i/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_i/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DV_HW_1_b_i/fast">
+				<Option output="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_i/DV_HW_1_b_i.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_i"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_i/Makefile&quot;  VERBOSE=1 DV_HW_1_b_i/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_i/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_i/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_i/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DV_HW_1_b_ii">
+				<Option output="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_ii/DV_HW_1_b_ii.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_ii"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_ii/Makefile&quot;  VERBOSE=1 DV_HW_1_b_ii"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_ii/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_ii/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_ii/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DV_HW_1_b_ii/fast">
+				<Option output="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_ii/DV_HW_1_b_ii.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_ii"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_ii/Makefile&quot;  VERBOSE=1 DV_HW_1_b_ii/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_ii/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_ii/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_ii/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/1_a_i/1_a_i_1.c">
+			<Option target="DV_HW_1_1"/>
+		</Unit>
+		<Unit filename="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/1_a_i/1_a_i_2.c">
+			<Option target="DV_HW_1_2"/>
+		</Unit>
+		<Unit filename="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/1_a_ii/1_a_ii.c">
+			<Option target="DV_HW_2"/>
+		</Unit>
+		<Unit filename="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/1_a_iii/1_a_iii.c">
+			<Option target="DV_HW_3"/>
+		</Unit>
+		<Unit filename="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/1_b_i/1_b_i.c">
+			<Option target="DV_HW_1_b_i"/>
+		</Unit>
+		<Unit filename="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/1_b_ii/1_b_ii.c">
+			<Option target="DV_HW_1_b_ii"/>
+		</Unit>
+		<Unit filename="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/1_a_i/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\1_a_i\"/>
+		</Unit>
+		<Unit filename="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/1_a_ii/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\1_a_ii\"/>
+		</Unit>
+		<Unit filename="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/1_a_iii/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\1_a_iii\"/>
+		</Unit>
+		<Unit filename="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/1_b_i/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\1_b_i\"/>
+		</Unit>
+		<Unit filename="C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/1_b_ii/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\1_b_ii\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -13,6 +13,7 @@ private:
     int m = *(new int);
     T **array = new T * [n];
 public:
+
     Matrix() : n(1), m(1) {
         array[0] = new T [1];
         *array[0] = 1;
@@ -36,6 +37,8 @@ public:
             }
         }
     }
+
+
     void write_matrix() {
         T tmp = 0;
         for(int i = 0; i < n; i++) {
@@ -45,6 +48,12 @@ public:
             }
         }
     }
+    /**
+     * Задает значения элементам матрицы
+     * @param k Строка
+     * @param l Столбец
+     * @param data Значение
+     */
     void set_matrix(int k, int l, T data) { // в концепции ООП нельзя, но надо как-то тестить
         array[k][l] = data;
     }
