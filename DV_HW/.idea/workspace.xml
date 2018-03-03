@@ -31,8 +31,8 @@
       <file leaf-file-name="1_b_ii.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/1_b_ii/1_b_ii.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="92" column="25" lean-forward="true" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="25" />
+            <state relative-caret-position="252">
+              <caret line="111" column="8" lean-forward="true" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="8" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -44,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/1_b_ii/text.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="42">
-              <caret line="2" column="218" lean-forward="false" selection-start-line="2" selection-start-column="218" selection-end-line="2" selection-end-column="218" />
+              <caret line="2" column="21" lean-forward="true" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -68,8 +68,8 @@
         <option value="$PROJECT_DIR$/1_b_ii/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/1_b_i/1_b_i.c" />
-        <option value="$PROJECT_DIR$/1_b_ii/1_b_ii.c" />
         <option value="$PROJECT_DIR$/1_b_ii/text.txt" />
+        <option value="$PROJECT_DIR$/1_b_ii/1_b_ii.c" />
       </list>
     </option>
   </component>
@@ -205,12 +205,12 @@
       <workItem from="1519028094734" duration="2654000" />
       <workItem from="1519199620841" duration="17640000" />
       <workItem from="1519414107225" duration="3964000" />
-      <workItem from="1519803846494" duration="11797000" />
+      <workItem from="1519803846494" duration="18800000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46383000" />
+    <option name="totallyTimeSpent" value="53386000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -222,7 +222,7 @@
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3281768" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3281768" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -244,80 +244,68 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/1_b_ii/1_b_ii.c</url>
-          <line>92</line>
-          <option name="timeStamp" value="106" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/1_b_ii/1_b_ii.c</url>
-          <line>91</line>
-          <option name="timeStamp" value="136" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="152" />
+      <option name="time" value="262" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
-        <watch expression="bool_array[i]" language="ObjectiveC" />
-        <watch expression="f_string[i + len_of_word]" language="ObjectiveC" />
-        <watch expression="strlen(f_string)" language="ObjectiveC" />
-        <watch expression="words[number_of_current_word][j]" language="ObjectiveC" />
-        <watch expression="words[0][0]" language="ObjectiveC" />
-        <watch expression="word[j]" language="ObjectiveC" />
+        <watch expression="str_array[i][j]" language="ObjectiveC" />
+        <watch expression="words[i]" language="ObjectiveC" />
+        <watch expression="str[j]" language="ObjectiveC" />
+        <watch expression="words[i] == words_original[j]" language="ObjectiveC" />
+        <watch expression="words_original[j]" language="ObjectiveC" />
+        <watch expression="count_words" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
-        <expression-string>strlen(f_string)</expression-string>
+        <expression-string>words[i] == words_original[j]</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>words[0][0]</expression-string>
+        <expression-string>words_original[j]</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>words[1][0]</expression-string>
+        <expression-string>str[j]</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>words[0][100050]</expression-string>
+        <expression-string>str_array[i][j]</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>words[0][1000]</expression-string>
+        <expression-string>&amp;str_array</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>words[0][70]</expression-string>
+        <expression-string>&amp;&amp;str_array</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>words[0][2]</expression-string>
+        <expression-string>**str_array</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>words[0][1]</expression-string>
+        <expression-string>str_array[2][1]</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>word[j]</expression-string>
+        <expression-string>str_array[1][1]</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>*words[0][0]</expression-string>
+        <expression-string>str_array[1][0]</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -534,15 +522,15 @@
     <entry file="file://$PROJECT_DIR$/1_b_ii/text.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
-          <caret line="2" column="218" lean-forward="false" selection-start-line="2" selection-start-column="218" selection-end-line="2" selection-end-column="218" />
+          <caret line="2" column="21" lean-forward="true" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/1_b_ii/1_b_ii.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="92" column="25" lean-forward="true" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="25" />
+        <state relative-caret-position="252">
+          <caret line="111" column="8" lean-forward="true" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="8" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

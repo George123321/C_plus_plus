@@ -3,18 +3,14 @@
 #include <mem.h>
 #include <ctype.h>
 
+int is_in(char*, char**, int);
+int eq_str(char*, char*);
+
 int main() {
     char *f_string = 0;
     int c;
     long length;
     FILE *my_text = fopen("C:\\Users\\George\\Desktop\\git_projects\\C_plus_plus\\DV_HW\\1_b_ii\\text.txt", "r"); // создание объекта файл, чтение
-    /* распечатка текста
-    if (my_text) {
-        while ((c = getc(my_text)) != EOF) {
-            putchar(c);
-        }
-        fclose(my_text); // закрывает файл
-    }*/
 
     if (my_text) {
         fseek(my_text, 0, SEEK_END); // ставим указатель на конец файла
@@ -24,7 +20,6 @@ int main() {
         if (f_string) {
             fread(f_string, 1, length, my_text); // записываем в строку наш файл
         }
-        //f_string[length - 2] = '\0';
         fclose(my_text); // закрываем файл
         // в итоге имеем в f_string цельную строку
         /* сделаем to_lower */
@@ -54,18 +49,6 @@ int main() {
         /* создаем array для слов */
         char *words[number_of_words];
         /* пока нули, будем записывать слово в words */
-        /*
-        int i = 0;
-        int k = 0;
-        for (int j = 0; j < number_of_words; j++) {
-            while ((bool_array[i] == 0) && (i != strlen(f_string) + 1)) {
-                words[j][k] = f_string[i];
-                i++;
-                k++;
-            }
-            k = 0;
-            i++;
-        }*/
         int number_of_current_word = -1;
         for(int i = 0; i < strlen(f_string); i++) {
             char word[30];
@@ -91,7 +74,71 @@ int main() {
 
         printf("\n");
         printf(f_string);
+        /* теперь нужно создать массив из неповторяющихся слов */
+        /* будем держать 2 массива: неповторяющихся слов и соответственно их количества */
+        char *words_original[number_of_words];
+        /* будем бежать по words и добавлять в words_original слово, если его нет */
+        int number_of_original_word = 0;
+        for (int i = 0; i < number_of_words; i++) {
+            if (!(is_in(words[i], words_original, number_of_original_word))) {
+                words_original[number_of_original_word] = (char*)calloc(strlen(words[i]), sizeof(char)+1);
+                for (int j = 0; j < strlen(words[i]); j++) {
+                    words_original[number_of_original_word][j] = words[i][j];
+                }
+                number_of_original_word++;
+            }
+        }
+        words_original[number_of_original_word] = "\0"; // сделаем на всякий случай метку, что дальше идет бред
+
+        int count_words[number_of_original_word];
+        for (int i = 0; i < number_of_original_word; i++) {
+            count_words[i] = 0;
+        }
+
+        for (int i = 0; i < number_of_words; i++) {
+            /* теперь ищем это слово в original */
+            for (int j = 0; j < number_of_original_word; j++) {
+                if (eq_str(words[i], words_original[j])) {
+                    count_words[j]++;
+                    break;
+                }
+            }
+        }
+        /*
+        int check = 0;
+        for (int i = 0; i < number_of_original_word; i++) {check += count_words[i];}
+        printf("%d ?= %d", number_of_words, check);
+         */
+        
     }
     return 0;
 }
 
+int eq_str(char* str1, char* str2) {
+    for (int i = 0; i < strlen(str1); i++) {
+        if (str1[i] != str2[i]) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+int is_in(char* str, char** str_array, int number_of_elements) {
+    if (number_of_elements == 0) {
+        return 0;
+    }
+    int len_str = strlen(str);
+    for (int i = 0; i < number_of_elements; i++) {
+        for (int j = 0; j < len_str; j++) {
+            if (str[j] == str_array[i][j]) {
+                if(j == len_str - 1) {
+                    return 1;
+                }
+            }
+            else {
+                break;
+            }
+        }
+    }
+    return 0;
+}
