@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/1_b_ii/1_b_ii.c
+stdio.h
+-
+stdlib.h
+-
+mem.h
+-
+ctype.h
+-
+
