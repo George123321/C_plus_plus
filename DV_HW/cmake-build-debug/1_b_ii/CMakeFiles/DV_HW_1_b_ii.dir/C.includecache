@@ -13,6 +13,8 @@ stdlib.h
 -
 mem.h
 -
+string.h
+-
 ctype.h
 -
 
