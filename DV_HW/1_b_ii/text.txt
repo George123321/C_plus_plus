@@ -1,3 +1,5 @@
 C is an imperative (procedural) systems implementation language. It was designed to be compiled using a relatively straightforward compiler, to provide low-level access to memory, to provide language constructs that map efficiently to machine instructions, and to require minimal run-time support. C was therefore useful for many applications that had formerly been coded in assembly language.
 
 very wide variety of computer platforms and operating systems with few changes to its source code. The language has become available on a very wide range of platforms, from embedded microcontrollers to supercomputers.
+
+Add class members, override/implement functions, generate constructors/destructors, getters/setters, equality, relational and stream output operators, wrap a block of code with a statement, or generate a declaration from actual usage - all via simple keyboard shortcuts.
