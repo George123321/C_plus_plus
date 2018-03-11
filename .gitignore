@@ -1,1 +1,8 @@
-/Debug/
+*.out
+*.log
+*.gz
+*.aux
+*.synctex
+*.bbl
+*.blg
+*.idea
