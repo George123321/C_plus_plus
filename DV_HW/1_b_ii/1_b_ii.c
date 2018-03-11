@@ -49,7 +49,10 @@ int main() {
                 number_of_original_word++;
             }
         }
-        words_original[number_of_original_word] = "\0"; // сделаем на всякий случай метку, что дальше идет мусор
+        /* дозабьем массив words_original нулями */
+        for (int i = number_of_original_word; i < number_of_words; i++) {
+            words_original[i] = "0";
+        }
 
         int freq_words[number_of_original_word];
         for (int i = 0; i < number_of_original_word; i++) {
@@ -61,6 +64,15 @@ int main() {
         sort_two_arrays(words_original, freq_words, number_of_original_word);
         write_res_in_file(words_original, freq_words, number_of_original_word);
         print_res(words_original, freq_words, number_of_original_word);
+
+        /* освободим память */
+        free(f_string);
+        for (int i = 0; i < number_of_words; i++) {
+            free(words[i]);
+            free(words_original[i]);
+        }
+        free(words);
+        free(words_original);
     }
     return 0;
 }
