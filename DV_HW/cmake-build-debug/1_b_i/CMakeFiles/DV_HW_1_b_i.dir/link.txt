@@ -1,3 +1,0 @@
-"D:\PF\JetBrains\CLion 2017.2.3\bin\cmake\bin\cmake.exe" -E remove -f CMakeFiles\DV_HW_1_b_i.dir/objects.a
-C:\MinGW\bin\ar.exe cr CMakeFiles\DV_HW_1_b_i.dir/objects.a @CMakeFiles\DV_HW_1_b_i.dir\objects1.rsp
-C:\MinGW\bin\gcc.exe -g   -Wl,--whole-archive CMakeFiles\DV_HW_1_b_i.dir/objects.a -Wl,--no-whole-archive  -o DV_HW_1_b_i.exe -Wl,--out-implib,libDV_HW_1_b_i.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\DV_HW_1_b_i.dir\linklibs.rsp
