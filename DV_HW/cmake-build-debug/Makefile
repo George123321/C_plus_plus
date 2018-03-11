@@ -187,6 +187,19 @@ DV_HW_1_b_ii/fast:
 	$(MAKE) -f 1_b_ii\CMakeFiles\DV_HW_1_b_ii.dir\build.make 1_b_ii/CMakeFiles/DV_HW_1_b_ii.dir/build
 .PHONY : DV_HW_1_b_ii/fast
 
+#=============================================================================
+# Target rules for targets named DV_HW_1_b_iii
+
+# Build rule for target.
+DV_HW_1_b_iii: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 DV_HW_1_b_iii
+.PHONY : DV_HW_1_b_iii
+
+# fast build rule for target.
+DV_HW_1_b_iii/fast:
+	$(MAKE) -f 1_b_iii\CMakeFiles\DV_HW_1_b_iii.dir\build.make 1_b_iii/CMakeFiles/DV_HW_1_b_iii.dir/build
+.PHONY : DV_HW_1_b_iii/fast
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -201,6 +214,7 @@ help:
 	@echo ... DV_HW_3
 	@echo ... DV_HW_1_b_i
 	@echo ... DV_HW_1_b_ii
+	@echo ... DV_HW_1_b_iii
 .PHONY : help
 
 

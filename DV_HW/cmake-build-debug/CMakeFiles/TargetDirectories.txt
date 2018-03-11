@@ -16,3 +16,6 @@ C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_i/C
 C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_ii/CMakeFiles/DV_HW_1_b_ii.dir
 C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_ii/CMakeFiles/edit_cache.dir
 C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_ii/CMakeFiles/rebuild_cache.dir
+C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_iii/CMakeFiles/DV_HW_1_b_iii.dir
+C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_iii/CMakeFiles/edit_cache.dir
+C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_iii/CMakeFiles/rebuild_cache.dir

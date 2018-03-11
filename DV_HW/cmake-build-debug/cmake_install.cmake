@@ -34,6 +34,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_a_iii/cmake_install.cmake")
   include("C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_i/cmake_install.cmake")
   include("C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_ii/cmake_install.cmake")
+  include("C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/cmake-build-debug/1_b_iii/cmake_install.cmake")
 
 endif()
 
