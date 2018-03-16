@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
+#include <time.h>
 
 int is_in(char*, char**, int);
 void print_res(char **, int *, int);
@@ -25,6 +26,7 @@ int main() {
         int res_status = 0;
         printf("If you want to sort the words alphabetically, type 0, if by frequency, type 1.\n");
         scanf("%d", &res_status);
+        clock_t begin = clock();
         if (res_status != 0 & res_status != 1) {
             printf("Invalid input");
             return 0;
@@ -55,7 +57,7 @@ int main() {
         int number_of_original_word = 0;
         for (int i = 0; i < number_of_words; i++) {
             if (!(is_in(words[i], words_original, number_of_original_word))) {
-                words_original[number_of_original_word] = (char*)calloc(strlen(words[i]), sizeof(char) + 1);
+                words_original[number_of_original_word] = (char *) calloc(strlen(words[i]), sizeof(char) + 1);
                 for (int j = 0; j < strlen(words[i]); j++) {
                     words_original[number_of_original_word][j] = words[i][j];
                 }
@@ -84,7 +86,9 @@ int main() {
         print_res(words_original, freq_words, number_of_original_word);
 
         /* выгрузим в файл индекс слова - частота */
-        sort_two_arrays_freq(words_original, freq_words, number_of_original_word);
+        if (res_status != 1) {
+            sort_two_arrays_freq(words_original, freq_words, number_of_original_word);
+        }
         write_res_in_file_freq(freq_words, number_of_original_word);
         /* освободим память */
         free(f_string);
@@ -94,6 +98,10 @@ int main() {
         }
         free(words);
         free(words_original);
+
+        clock_t end = clock();
+        double time_spent = (double) (end - begin) / CLOCKS_PER_SEC;
+        printf("%lf", time_spent);
     }
     return 0;
 }
