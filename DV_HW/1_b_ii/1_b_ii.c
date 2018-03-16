@@ -4,48 +4,41 @@
 #include <string.h>
 
 int is_in(char*, char**, int);
-int eq_str(char*, char*);
 void print_res(char **, int *, int);
 void sort_two_arrays(char **, int *, int);
 char *file_to_string(FILE *, char *, long);
 void string_to_bool(char *, int *);
-int count_words(int, int *);
-void string_to_array(char **, char *, int *);
+int count_words(int, int *, int *);
+void string_to_array(char **, char *, int *, int);
 void count_freq_words(int *, char **, char **, int, int);
 void write_res_in_file(char **, int *, int);
-
-void str_to_lower(char *str) {
-    unsigned char *p = (unsigned char *)str;
-
-    while (*p) {
-        *p = tolower((unsigned char)*p);
-        p++;
-    }
-}
+void str_to_lower(char *);
 
 
 int main() {
-    char *f_string = 0;
-    long length;
     /* читаем наш файл */
     FILE *my_text = fopen("C:\\Users\\George\\Desktop\\git_projects\\C_plus_plus\\DV_HW\\1_b_ii\\text.txt", "r");
 
     if (my_text) {
+        char *f_string = 0;
+        long length;
         f_string = file_to_string(my_text, f_string, length);
         /* закроем файл */
         fclose(my_text);
-        /* в итоге имеем в f_string цельную строку */
-        /* сделаем to_lower */
+        /* в итоге имеем в f_string цельную строку
+        * сделаем to_lower */
         str_to_lower(f_string);
         /* сделаем bool array (не буква из алфавта) */
         int bool_array[strlen(f_string)];
         string_to_bool(f_string, bool_array);
-        /* будем предполагать, что строка начинается с буквы, к тому же слова с дефисом будем считать за два */
-        int number_of_words = count_words(strlen(f_string), bool_array);
+        /* слова с дефисом будем считать за два */
+        int number_of_words = 0;
+        int max_len = 0;
+        max_len = count_words(strlen(f_string), bool_array, &number_of_words);
         /* создаем array для слов */
         char *words[number_of_words];
         /* пока нули, будем записывать слово в words */
-        string_to_array(words, f_string, bool_array);
+        string_to_array(words, f_string, bool_array, max_len);
         /* теперь нужно создать массив из неповторяющихся слов */
         /* будем держать 2 массива: неповторяющихся слов и соответственно их количества */
         char *words_original[number_of_words];
@@ -53,7 +46,7 @@ int main() {
         int number_of_original_word = 0;
         for (int i = 0; i < number_of_words; i++) {
             if (!(is_in(words[i], words_original, number_of_original_word))) {
-                words_original[number_of_original_word] = (char*)calloc(strlen(words[i]), sizeof(char)+1);
+                words_original[number_of_original_word] = (char*)calloc(strlen(words[i]), sizeof(char) + 1);
                 for (int j = 0; j < strlen(words[i]); j++) {
                     words_original[number_of_original_word][j] = words[i][j];
                 }
@@ -94,20 +87,6 @@ int main() {
     return 0;
 }
 
-/* функция, которая сравнивает две строки */
-int eq_str(char *str1, char *str2) {
-    int max_len = strlen(str1);
-    if (strlen(str2) > max_len) {
-        max_len = strlen(str2);
-    }
-    for (int i = 0; i < max_len; i++) {
-        if (str1[i] != str2[i]) {
-            return 0;
-        }
-    }
-    return 1;
-}
-
 /* функция, которая проверяет наличие слова в массиве */
 int is_in(char *str, char **str_array, int number_of_elements) {
     if (number_of_elements == 0) {
@@ -131,6 +110,7 @@ void print_res(char **words_original, int *count, int n) {
 
 /* функция, которая сортирует по алфавиту массив слов, делая то же с массивом частот слов */
 void sort_two_arrays(char **words, int *count, int number) {
+    /* сортировка пузырьком */
     for (int i = 0; i < number - 1; i++)
         for (int j = i + 1; j < number; j++)
             if(strcmp(words[i], words[j]) > 0) {
@@ -161,27 +141,41 @@ void string_to_bool(char *f_string, int *bool_array) {
     for (int i = 0; i < strlen(f_string); i++) {
         if ((f_string[i] >= 'a' && f_string[i] <= 'z')) {
             bool_array[i] = 0;
-        } else {
+        }
+        else {
             bool_array[i] = 1;
         }
     }
 }
-/* функция, которая считает количество слов по bool-массиву*/
-int count_words(int l, int *bool_array) {
-    int number_of_words = 0;
+
+/* функция, которая считает количество слов по bool-массиву и находит длинну самого длинного слова*/
+int count_words(int l, int *bool_array, int *number_of_words) {
+    int max_len_word = 0;
+    int len_of_current_word = 0;
+    /* Будем бежать по всей строке. Данный цикл не учтет последнее слово, если строка оканчивается на букву.
+     * Тогда если она оканчивается на букву, добавим к количеству слов один.
+     * Также будем считать максимальную длину слова. */
     for (int i = 0; i < l; i++) {
-        if (bool_array[i] == 1 && bool_array[i + 1] != 1) { // тут может быть выход за пределы, но строка в си заканчивается на \0, поэтому все должно быть норм
-            number_of_words++;
+        if (bool_array[i] == 0) {
+            while (bool_array[i + len_of_current_word] == 0) {
+                len_of_current_word++;
+            }
+            i += len_of_current_word; // i указывает на 1
+           *number_of_words += 1;
+            if (len_of_current_word > max_len_word) {
+                max_len_word = len_of_current_word;
+            }
+            len_of_current_word = 0;
         }
     }
-    return number_of_words;
+    return max_len_word;
 }
 
 /* функция, которая преобразует строку в массив слов с помощью bool-массива */
-void string_to_array(char **words, char *f_string, int *bool_array) {
+void string_to_array(char **words, char *f_string, int *bool_array, int max_len) {
     int number_of_current_word = -1;
     for(int i = 0; i < strlen(f_string); i++) {
-        char word[30];
+        char word[max_len];
         int len_of_word = 0;
         if (bool_array[i] == 0) {
             while (bool_array[i + len_of_word] == 0) {
@@ -204,9 +198,9 @@ void count_freq_words(int *freq_words, char **words, char **words_original, int 
     for (int i = 0; i < number_of_words; i++) {
         // теперь ищем это слово в original
         for (int j = 0; j < number_of_original_word; j++) {
-            if (eq_str(words[i], words_original[j])) {
+            if (strcmp(words[i], words_original[j]) == 0) {
                 freq_words[j]++;
-                break;
+                break; // делаем break, т.к. дальше искать нет смысла
             }
         }
     }
@@ -220,5 +214,13 @@ void write_res_in_file(char **words_original, int *count, int n) {
     }
     for (int i = 0; i < n; i++) {
         fprintf(f, "%s : %d\n", words_original[i], count[i]);
+    }
+}
+
+void str_to_lower(char *str) {
+    int i = 0;
+    while (str[i]) {
+        str[i] = (char)tolower(str[i]);
+        i++;
     }
 }
