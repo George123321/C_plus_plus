@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <mem.h>
+#include <ctype.h>
+#include <string.h>
 
 int is_in(char*, char**, int);
 int eq_str(char*, char*);
@@ -12,6 +13,16 @@ int count_words(int, int *);
 void string_to_array(char **, char *, int *);
 void count_freq_words(int *, char **, char **, int, int);
 void write_res_in_file(char **, int *, int);
+
+void str_to_lower(char *str) {
+    unsigned char *p = (unsigned char *)str;
+
+    while (*p) {
+        *p = tolower((unsigned char)*p);
+        p++;
+    }
+}
+
 
 int main() {
     char *f_string = 0;
@@ -25,7 +36,7 @@ int main() {
         fclose(my_text);
         /* в итоге имеем в f_string цельную строку */
         /* сделаем to_lower */
-        strlwr(f_string);
+        str_to_lower(f_string);
         /* сделаем bool array (не буква из алфавта) */
         int bool_array[strlen(f_string)];
         string_to_bool(f_string, bool_array);
@@ -65,6 +76,12 @@ int main() {
         write_res_in_file(words_original, freq_words, number_of_original_word);
         print_res(words_original, freq_words, number_of_original_word);
 
+        int res = 0;
+        for (int i = 0; i < number_of_original_word; i++) {
+            res += freq_words[i];
+        }
+
+        printf("%d", res);
         /* освободим память */
         free(f_string);
         for (int i = 0; i < number_of_words; i++) {
@@ -96,17 +113,9 @@ int is_in(char *str, char **str_array, int number_of_elements) {
     if (number_of_elements == 0) {
         return 0;
     }
-    int len_str = strlen(str);
     for (int i = 0; i < number_of_elements; i++) {
-        for (int j = 0; j < len_str; j++) {
-            if (str[j] == str_array[i][j]) {
-                if(j == len_str - 1) {
-                    return 1;
-                }
-            }
-            else {
-                break;
-            }
+        if (strcmp(str, str_array[i]) == 0) { // если строки равны
+            return 1;
         }
     }
     return 0;
