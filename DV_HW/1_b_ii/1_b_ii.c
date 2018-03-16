@@ -13,6 +13,7 @@ int count_words(int, short *, int *);
 void string_to_array(char **, char *, short *, int);
 void count_freq_words(int *, char **, char **, int, int);
 void write_res_in_file(char **, int *, int);
+void write_res_in_file_freq(int *, int);
 void str_to_lower(char *);
 
 
@@ -82,11 +83,9 @@ int main() {
         write_res_in_file(words_original, freq_words, number_of_original_word);
         print_res(words_original, freq_words, number_of_original_word);
 
-        int res = 0;
-        for (int i = 0; i < number_of_original_word; i++) {
-            res += freq_words[i];
-        }
-
+        /* выгрузим в файл индекс слова - частота */
+        sort_two_arrays_freq(words_original, freq_words, number_of_original_word);
+        write_res_in_file_freq(freq_words, number_of_original_word);
         /* освободим память */
         free(f_string);
         for (int i = 0; i < number_of_words; i++) {
@@ -253,6 +252,16 @@ void write_res_in_file(char **words_original, int *count, int n) {
     }
     for (int i = 0; i < n; i++) {
         fprintf(f, "%s : %d\n", words_original[i], count[i]);
+    }
+}
+
+void write_res_in_file_freq(int *count, int n) {
+    FILE *f = fopen("C:\\Users\\George\\Desktop\\git_projects\\C_plus_plus\\DV_HW\\1_b_ii\\res_freq.csv", "w");
+    if (f == NULL) {
+        printf("Error opening file!\n");
+    }
+    for (int i = 0; i < n; i++) {
+        fprintf(f, "%d,%d\n", i + 1, count[i]);
     }
 }
 
