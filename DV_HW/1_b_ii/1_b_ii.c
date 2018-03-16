@@ -5,7 +5,8 @@
 
 int is_in(char*, char**, int);
 void print_res(char **, int *, int);
-void sort_two_arrays(char **, int *, int);
+void sort_two_arrays_alphabetically(char **, int *, int);
+void sort_two_arrays_freq(char **, int *, int);
 char *file_to_string(FILE *, char *, long);
 void string_to_bool(char *, int *);
 int count_words(int, int *, int *);
@@ -20,6 +21,13 @@ int main() {
     FILE *my_text = fopen("C:\\Users\\George\\Desktop\\git_projects\\C_plus_plus\\DV_HW\\1_b_ii\\text.txt", "r");
 
     if (my_text) {
+        int res_status = 0;
+        printf("If you want to sort the words alphabetically, type 0, if by frequency, type 1.\n");
+        scanf("%d", &res_status);
+        if (res_status != 0 & res_status != 1) {
+            printf("Invalid input");
+            return 0;
+        }
         char *f_string = 0;
         long length;
         f_string = file_to_string(my_text, f_string, length);
@@ -65,7 +73,12 @@ int main() {
 
         count_freq_words(freq_words, words, words_original, number_of_words, number_of_original_word);
         /* осталось отсортировать в алфавитном порядке, переставляя и числа тоже */
-        sort_two_arrays(words_original, freq_words, number_of_original_word);
+        if (res_status == 0) {
+            sort_two_arrays_alphabetically(words_original, freq_words, number_of_original_word);
+        }
+        if (res_status == 1) {
+            sort_two_arrays_freq(words_original, freq_words, number_of_original_word);
+        }
         write_res_in_file(words_original, freq_words, number_of_original_word);
         print_res(words_original, freq_words, number_of_original_word);
 
@@ -74,7 +87,6 @@ int main() {
             res += freq_words[i];
         }
 
-        printf("%d", res);
         /* освободим память */
         free(f_string);
         for (int i = 0; i < number_of_words; i++) {
@@ -109,7 +121,7 @@ void print_res(char **words_original, int *count, int n) {
 }
 
 /* функция, которая сортирует по алфавиту массив слов, делая то же с массивом частот слов */
-void sort_two_arrays(char **words, int *count, int number) {
+void sort_two_arrays_alphabetically(char **words, int *count, int number) {
     /* сортировка пузырьком */
     for (int i = 0; i < number - 1; i++)
         for (int j = i + 1; j < number; j++)
@@ -122,6 +134,33 @@ void sort_two_arrays(char **words, int *count, int number) {
                 count[i] = count[j];
                 count[j] = tmp_i;
             }
+}
+
+void sort_two_arrays_freq(char **words, int *count, int number) {
+    for (int i = 0; i < number - 1; i++) {
+        for (int j = i + 1; j < number; j++) {
+            if (count[j] > count[i]) { // пока строгое неравенство
+                char *tmp = words[i];
+                words[i] = words[j];
+                words[j] = tmp;
+
+                int tmp_i = count[i];
+                count[i] = count[j];
+                count[j] = tmp_i;
+            }
+            if(count[j] == count[i]) { // надо сортировать по алфавиту
+                if(strcmp(words[i], words[j]) > 0) {
+                    char *tmp = words[i];
+                    words[i] = words[j];
+                    words[j] = tmp;
+
+                    int tmp_i = count[i];
+                    count[i] = count[j];
+                    count[j] = tmp_i;
+                }
+            }
+        }
+    }
 }
 
 /* функция, которая читает тектовый файл и преобразует его в строку */
