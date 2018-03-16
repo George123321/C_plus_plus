@@ -8,9 +8,9 @@ void print_res(char **, int *, int);
 void sort_two_arrays_alphabetically(char **, int *, int);
 void sort_two_arrays_freq(char **, int *, int);
 char *file_to_string(FILE *, char *, long);
-void string_to_bool(char *, int *);
-int count_words(int, int *, int *);
-void string_to_array(char **, char *, int *, int);
+void string_to_bool(char *, short *);
+int count_words(int, short *, int *);
+void string_to_array(char **, char *, short *, int);
 void count_freq_words(int *, char **, char **, int, int);
 void write_res_in_file(char **, int *, int);
 void str_to_lower(char *);
@@ -37,7 +37,7 @@ int main() {
         * сделаем to_lower */
         str_to_lower(f_string);
         /* сделаем bool array (не буква из алфавта) */
-        int bool_array[strlen(f_string)];
+        short bool_array[strlen(f_string)];
         string_to_bool(f_string, bool_array);
         /* слова с дефисом будем считать за два */
         int number_of_words = 0;
@@ -176,7 +176,7 @@ char *file_to_string(FILE *my_text, char *f_string, long length) {
 }
 
 /* функция, которая возвращает массив "не буква" */
-void string_to_bool(char *f_string, int *bool_array) {
+void string_to_bool(char *f_string, short *bool_array) {
     for (int i = 0; i < strlen(f_string); i++) {
         if ((f_string[i] >= 'a' && f_string[i] <= 'z')) {
             bool_array[i] = 0;
@@ -188,7 +188,7 @@ void string_to_bool(char *f_string, int *bool_array) {
 }
 
 /* функция, которая считает количество слов по bool-массиву и находит длинну самого длинного слова*/
-int count_words(int l, int *bool_array, int *number_of_words) {
+int count_words(int l, short *bool_array, int *number_of_words) {
     int max_len_word = 0;
     int len_of_current_word = 0;
     /* Будем бежать по всей строке. Данный цикл не учтет последнее слово, если строка оканчивается на букву.
@@ -211,7 +211,7 @@ int count_words(int l, int *bool_array, int *number_of_words) {
 }
 
 /* функция, которая преобразует строку в массив слов с помощью bool-массива */
-void string_to_array(char **words, char *f_string, int *bool_array, int max_len) {
+void string_to_array(char **words, char *f_string, short *bool_array, int max_len) {
     int number_of_current_word = -1;
     for(int i = 0; i < strlen(f_string); i++) {
         char word[max_len];
