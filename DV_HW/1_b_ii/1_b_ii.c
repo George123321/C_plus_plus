@@ -3,6 +3,7 @@
 #include <ctype.h>
 #include <string.h>
 #include <time.h>
+#include <math.h>
 
 int is_in(char*, char**, int);
 void print_res(char **, int *, int);
@@ -15,6 +16,8 @@ void string_to_array(char **, char *, short *, int);
 void count_freq_words(int *, char **, char **, int, int);
 void write_res_in_file(char **, int *, int);
 void write_res_in_file_freq(int *, int);
+void write_res_in_file_freq_ln(int *, int);
+void write_res_in_file_freq_hyperbole(int *, int);
 void str_to_lower(char *);
 
 
@@ -90,6 +93,8 @@ int main() {
             sort_two_arrays_freq(words_original, freq_words, number_of_original_word);
         }
         write_res_in_file_freq(freq_words, number_of_original_word);
+        write_res_in_file_freq_ln(freq_words, number_of_original_word);
+        write_res_in_file_freq_hyperbole(freq_words, number_of_original_word);
         /* освободим память */
         free(f_string);
         for (int i = 0; i < number_of_words; i++) {
@@ -198,16 +203,14 @@ void string_to_bool(char *f_string, short *bool_array) {
 int count_words(int l, short *bool_array, int *number_of_words) {
     int max_len_word = 0;
     int len_of_current_word = 0;
-    /* Будем бежать по всей строке. Данный цикл не учтет последнее слово, если строка оканчивается на букву.
-     * Тогда если она оканчивается на букву, добавим к количеству слов один.
-     * Также будем считать максимальную длину слова. */
+
     for (int i = 0; i < l; i++) {
         if (bool_array[i] == 0) {
             while (bool_array[i + len_of_current_word] == 0) {
                 len_of_current_word++;
             }
             i += len_of_current_word; // i указывает на 1
-           *number_of_words += 1;
+            *number_of_words += 1;
             if (len_of_current_word > max_len_word) {
                 max_len_word = len_of_current_word;
             }
@@ -254,7 +257,7 @@ void count_freq_words(int *freq_words, char **words, char **words_original, int 
 
 /* функция, которая записывает результат в файл*/
 void write_res_in_file(char **words_original, int *count, int n) {
-    FILE *f = fopen("C:\\Users\\George\\Desktop\\git_projects\\C_plus_plus\\DV_HW\\1_b_ii\\res.txt", "w");
+    FILE *f = fopen("C:\\Users\\George\\Desktop\\git_projects\\C_plus_plus\\DV_HW\\1_b_ii\\Output\\res.txt", "w");
     if (f == NULL) {
         printf("Error opening file!\n");
     }
@@ -264,12 +267,32 @@ void write_res_in_file(char **words_original, int *count, int n) {
 }
 
 void write_res_in_file_freq(int *count, int n) {
-    FILE *f = fopen("C:\\Users\\George\\Desktop\\git_projects\\C_plus_plus\\DV_HW\\1_b_ii\\res_freq.csv", "w");
+    FILE *f = fopen("C:\\Users\\George\\Desktop\\git_projects\\C_plus_plus\\DV_HW\\1_b_ii\\Output\\res_freq.csv", "w");
     if (f == NULL) {
         printf("Error opening file!\n");
     }
     for (int i = 0; i < n; i++) {
         fprintf(f, "%d,%d\n", i + 1, count[i]);
+    }
+}
+
+void write_res_in_file_freq_ln(int *count, int n) {
+    FILE *f = fopen("C:\\Users\\George\\Desktop\\git_projects\\C_plus_plus\\DV_HW\\1_b_ii\\Output\\res_freq_ln.csv", "w");
+    if (f == NULL) {
+        printf("Error opening file!\n");
+    }
+    for (int i = 0; i < n; i++) {
+        fprintf(f, "%lf,%lf\n", log(i + 1), log(count[i]));
+    }
+}
+
+void write_res_in_file_freq_hyperbole(int *count, int n) {
+    FILE *f = fopen("C:\\Users\\George\\Desktop\\git_projects\\C_plus_plus\\DV_HW\\1_b_ii\\Output\\res_freq_hyperbole.csv", "w");
+    if (f == NULL) {
+        printf("Error opening file!\n");
+    }
+    for (int i = 0; i < n; i++) {
+        fprintf(f, "%lf,%d\n", 1/((double)(i + 1)), count[i]);
     }
 }
 
