@@ -23,13 +23,15 @@ void str_to_lower(char *);
 
 int main() {
     /* читаем наш файл */
-    FILE *my_text = fopen("C:\\Users\\George\\Desktop\\git_projects\\C_plus_plus\\DV_HW\\1_b_ii\\text.txt", "r");
+    FILE *my_text = fopen("C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/1_b_ii/text.txt", "r");
 
     if (my_text) {
         int res_status = 0;
         printf("If you want to sort the words alphabetically, type 0, if by frequency, type 1.\n");
         scanf("%d", &res_status);
+
         clock_t begin = clock();
+
         if (res_status != 0 & res_status != 1) {
             printf("Invalid input");
             return 0;
@@ -106,7 +108,7 @@ int main() {
 
         clock_t end = clock();
         double time_spent = (double) (end - begin) / CLOCKS_PER_SEC;
-        printf("%lf", time_spent);
+        printf("%lf\n", time_spent);
     }
     return 0;
 }
