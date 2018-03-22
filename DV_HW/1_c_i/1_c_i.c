@@ -20,15 +20,6 @@ void list_init(struct Linked_List *lst) {
     lst->size = 0;
 }
 
-struct Node *insert_node(struct Node *p_begin, const int data_x, const int data_y) {
-    struct Node *p = malloc(sizeof(*p));
-    p->x = data_x;
-    p->y = data_y;
-    p->next = p_begin;
-    p->prev = NULL;
-    return p;
-}
-
 void list_insert(struct Linked_List *lst, const int data_x, const int data_y) {
     lst->size += 1;
 
