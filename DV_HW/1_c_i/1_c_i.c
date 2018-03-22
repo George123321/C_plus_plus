@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <malloc.h>
 
+#define N = 10// количество точек
+#define MAX 10
+
 struct Node {
     int x;
     int y;
@@ -95,19 +98,27 @@ void list_print(struct Linked_List *lst) {
 }
 
 int main() {
-    struct Linked_List a;
-    list_init(&a);
-    list_insert(&a, 1, 0);
-    list_insert(&a, 5, 2);
-    list_insert(&a, 3, 1);
+    struct Linked_List points;
+    struct Linked_List polygon;
+    list_init(&points);
+    list_init(&polygon);
 
-    struct Node *p = a.begin;
-    while (p) {
-        p = a.begin;
-        list_print(&a);
-        list_del(&a, p);
+    for (int point = 0; point < MAX; point++) {
+        list_insert(&points, rand() % (MAX + 1), rand() % (MAX + 1));
     }
-    list_del(&a, NULL);
-    list_print(&a);
-    return 0;
+
+    struct Node *p = points.begin;
+    struct Node *p_min = points.begin;
+    int min = points.begin->y;
+    for (int i = 0; i < MAX; i++) {
+        if (p->y < min) {
+            min = p->y;
+            p_min = p;
+        }
+        p = p->next;
+    }
+    list_insert(&polygon, p_min->x, p_min->y);
+    list_del(&points, p_min);
+
+    
 }
