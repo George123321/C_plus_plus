@@ -3,7 +3,7 @@
 #include <math.h>
 
 #define MAX 10
-#define N 20
+#define N 150
 
 struct Node {
     int x;
@@ -176,6 +176,11 @@ int main() {
                 min_angle = current_angle;
                 p_min = p;
             }
+            /*
+            if (current_angle == min_angle && (p->x * p->x + p->y * p->y > p_min->x * p_min->x + p_min->y * p_min->y)) { // TODO: проблема здесь
+                min_angle = current_angle;
+                p_min = p;
+            }*/
             p = p->next;
         }
         list_insert(&polygon, p_min->x, p_min->y);
@@ -189,6 +194,10 @@ int main() {
     p = polygon.begin->next;
 
     while (p != polygon.end) {
+        if (p->x == p->next->x && p->y == p->next->y) {
+            list_del(&polygon, p->next);
+            continue;
+        }
         while (type_of_rotate(p->prev, p, p->next) < 0) {
             p = p->prev;
             list_del(&polygon, p->next);
