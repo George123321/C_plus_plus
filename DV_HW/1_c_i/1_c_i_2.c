@@ -2,8 +2,8 @@
 #include <malloc.h>
 #include <math.h>
 
-#define MAX 1000
-#define N 30
+#define MAX 10000
+#define N 50
 
 struct Node {
     int x;
@@ -98,12 +98,35 @@ void list_print(struct Linked_List *lst) {
     }
 }
 
-double polar_angle(int x, int y) {
-    return acos(x/pow(x * x + y * y, 0.5));
+void make_points(struct Linked_List *points) {
+    for (int point = 0; point < N; point++) {
+        list_insert(points, rand() % (MAX + 1), rand() % (MAX + 1));
+    }
 }
 
-double angle_between_vec(int x_1, int y_1, int x_2, int y_2) {
-    return acos((x_1 * x_2 + y_1 * y_2)/(pow((x_1 * x_1 + y_1 * y_1) * (x_2 * x_2 + y_2 * y_2), 0.5)));
+struct Node *find_start_point(struct Linked_List *points) {
+    struct Node *p = points->begin;
+    struct Node *p_min_y = points->begin;
+    int min_y = points->begin->y;
+    while (p) {
+        if (p->y < min_y) {
+            min_y = p->y;
+            p_min_y = p;
+        }
+        p = p->next;
+    }
+    /* нашли минимум по y. Ищем минимум по x */
+    struct Node *p_min = p_min_y; // может уже минимум по x?
+    p = points->begin;
+    int min_x = p_min_y->x;
+    while (p) {
+        if (p->x < min_x && p->y == p_min_y->y) {
+            min_x = p->x;
+            p_min = p;
+        }
+        p = p->next;
+    }
+    return p_min;
 }
 
 void polygon_in_file(struct Linked_List *lst) {
@@ -136,9 +159,64 @@ void points_in_file(struct Linked_List *lst) {
     }
 }
 
+double polar_angle(int x, int y) {
+    return acos(x/pow(x * x + y * y, 0.5));
+}
+
+double relative_polar_angle(struct Node *start_p, struct Node *p) {
+    return polar_angle(p->x - start_p->x, p->y - start_p->y);
+}
+
+void sort_by_polar_angle(struct Node *start_p, struct Linked_List *points, struct Linked_List *polygon) {
+    while (points->size != 0) {
+        struct Node *p = points->begin;
+        struct Node *p_min = points->begin;
+        double min_angle = relative_polar_angle(start_p, p_min);
+        while (p) {
+            double current_angle = relative_polar_angle(start_p, p);
+            int relative_x = p->x - start_p->x;
+            int relative_y = p->y - start_p->y;
+            if (current_angle == min_angle) {
+                if (relative_x * relative_x + relative_y * relative_y <
+                        (p_min->x - start_p->x) * (p_min->x - start_p->x) +
+                                (p_min->y - start_p->y) * (p_min->y - start_p->y)) {
+                    min_angle = current_angle;
+                    p_min = p;
+                }
+            }
+            else if (current_angle < min_angle) {
+                min_angle = current_angle;
+                p_min = p;
+            }
+            p = p->next;
+        }
+        list_insert(polygon, p_min->x, p_min->y);
+        list_del(points, p_min);
+    }
+}
+
 int type_of_rotate(struct Node *a, struct Node *b, struct Node *c) {
     return (b->x - a->x) * (c->y - a->y) - (b->y - a->y) * (c->x - a->x); // компонента z вектора из векторного произведения
 }
+
+void cut_angles(struct Linked_List *polygon) {
+    /* первые две вершины точно принадлежат оболочке. переместимся в эту точку */
+    struct Node *p = polygon->begin->next;
+
+    while (p != polygon->end) {
+        if (p->x == p->next->x && p->y == p->next->y) {
+            list_del(polygon, p->next);
+            continue;
+        }
+        while (type_of_rotate(p->prev, p, p->next) < 0) {
+            p = p->prev;
+            list_del(polygon, p->next);
+        }
+        p = p->next;
+    }
+}
+
+
 
 int main() {
     struct Linked_List points;
@@ -146,83 +224,19 @@ int main() {
     list_init(&points);
     list_init(&polygon);
 
-    for (int point = 0; point < N; point++) {
-        list_insert(&points, rand() % (MAX + 1), rand() % (MAX + 1));
-    }
-    // запишем точки в файл
+    make_points(&points);
     points_in_file(&points);
 
-    // найдем точку с наименьшей ординатой и наименьшей абсцисой
-    struct Node *p = points.begin;
-    struct Node *p_min_y = points.begin;
-    struct Node *p_min = points.begin;
-    int min_y = p->y;
-    while (p) {
-        if (p->y <= min_y) {
-            min_y = p->y;
-            p_min_y = p;
-        }
-        p = p->next;
-    }
-    /* нашли точку с минимальным y. Теперь найдем среди них минимальную по x */
-    p = points.begin;
-    p_min = p_min_y; // временный минимум
-    int min_x = p_min_y->x;
-    while (p) {
-        if (p->y == p_min_y->y) {
-            if (p->x < min_x) {
-                p_min = p;
-                min_x = p->x;
-            }
-        }
-        p = p->next;
-    }
-    /* p_min указывает на node с минимальной ординатой и абсциссой. Добавляем! */
-    list_insert(&polygon, p_min->x, p_min->y);
-    list_del(&points, p_min);
-    /* добавим в polygon остальные точки в порядке возрастания полярного угла */
-    while (points.size != 0) {
-        p = points.begin;
-        p_min = points.begin;
-        double min_angle = 10;
-        while (p) {
-            double current_angle = polar_angle(p->x, p->y);
-            if (current_angle == min_angle && (p->x * p->x + p->y * p->y < p_min->x * p_min->x + p_min->y * p_min->y) && p->x >= p->y) { // TODO: проблема здесь
-                min_angle = current_angle;
-                p_min = p;
-            }
-            else if (current_angle == min_angle && (p->x * p->x + p->y * p->y > p_min->x * p_min->x + p_min->y * p_min->y) && p->x < p->y) { // TODO: проблема здесь
-                min_angle = current_angle;
-                p_min = p;
-            }
-            if (current_angle < min_angle) {
-                min_angle = current_angle;
-                p_min = p;
-            }
-            p = p->next;
-        }
-        list_insert(&polygon, p_min->x, p_min->y);
-        list_del(&points, p_min);
-    }
+    struct Node *start_p = find_start_point(&points);
+    list_insert(&polygon, start_p->x, start_p->y);
+    list_del(&points, start_p);
+
+    sort_by_polar_angle(start_p, &points, &polygon);
+
     /* добавим в конец первую точку */
     list_insert(&polygon, polygon.begin->x, polygon.begin->y);
     /* теперь нужно срезать все углы, т.е. удалить те вершины, для которых выполнен левый поворот */
-    /* первые две вершины точно принадлежат оболочке. переместимся в эту точку */
-    p = polygon.begin->next;
+    cut_angles(&polygon);
 
-    while (p != polygon.end) {
-        if (p->x == p->next->x && p->y == p->next->y) {
-            list_del(&polygon, p->next);
-            continue;
-        }
-        while (type_of_rotate(p->prev, p, p->next) < 0) {
-            p = p->prev;
-            list_del(&polygon, p->next);
-        }
-        p = p->next;
-    }
-    list_print(&polygon);
     polygon_in_file(&polygon);
-
-    return 0;
 }
