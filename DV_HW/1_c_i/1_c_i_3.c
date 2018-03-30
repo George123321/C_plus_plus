@@ -3,8 +3,8 @@
 #include <math.h>
 #include "Linked_List.h"
 
-#define MAX 1000
-#define N 100
+#define MAX 10
+#define N 10
 
 void make_points(struct Linked_List *points) {
     for (int point = 0; point < N; point++) {
@@ -68,21 +68,14 @@ void points_in_file(struct Linked_List *lst) {
 }
 
 double polar_angle(float x, float y) {
-    if (x == 0 && y == 0) {
-        return (float)1.0/0.0;
-    }
-    else {
-        return acos(x / pow(x * x + y * y, 0.5));
-    }
+    return acos(x/pow(x * x + y * y, 0.5));
 }
 
 double relative_polar_angle(struct Node *start_p, struct Node *p) {
     return polar_angle(p->x - start_p->x, p->y - start_p->y);
 }
 
-void sort_by_polar_angle(float start_p_x, float start_p_y, struct Linked_List *points, struct Linked_List *polygon) {
-    struct Node *start_p = malloc(sizeof(start_p));
-    node_init(start_p, start_p_x, start_p_y);
+void sort_by_polar_angle(struct Node *start_p, struct Linked_List *points, struct Linked_List *polygon) {
     while (points->size != 0) {
         struct Node *p = points->begin;
         struct Node *p_min = points->begin;
@@ -93,8 +86,8 @@ void sort_by_polar_angle(float start_p_x, float start_p_y, struct Linked_List *p
             float relative_y = p->y - start_p->y;
             if (current_angle == min_angle) {
                 if (relative_x * relative_x + relative_y * relative_y >
-                        (p_min->x - start_p->x) * (p_min->x - start_p->x) +
-                                (p_min->y - start_p->y) * (p_min->y - start_p->y)) {
+                    (p_min->x - start_p->x) * (p_min->x - start_p->x) +
+                    (p_min->y - start_p->y) * (p_min->y - start_p->y)) {
                     min_angle = current_angle;
                     p_min = p;
                 }
@@ -131,6 +124,14 @@ void cut_angles(struct Linked_List *polygon) {
     }
 }
 
+void del_repetitions(struct Linked_List *lst, struct Node *node) {
+    struct Node *p = lst->begin;
+}
+
+void make_polygon(struct Linked_List *points, struct Linked_List *polygon) {
+
+}
+
 int main() {
     struct Linked_List points;
     struct Linked_List polygon;
@@ -142,16 +143,10 @@ int main() {
 
     struct Node *start_p = find_start_point(&points);
     list_insert(&polygon, start_p->x, start_p->y);
-    float start_p_x = start_p->x;
-    float start_p_y = start_p->y;
-    list_del(&points, start_p); // удаляем start_p!!!
+    list_del(&points, start_p);
+    list_insert(&points, start_p->x, start_p->y); // теперь она в конце
 
-    sort_by_polar_angle(start_p_x, start_p_y, &points, &polygon);
-
-    /* добавим в конец первую точку */
-    list_insert(&polygon, polygon.begin->x, polygon.begin->y);
-    /* теперь нужно срезать все углы, т.е. удалить те вершины, для которых не выполнен левый поворот */
-    cut_angles(&polygon);
+    make_polygon(&points, &polygon);
 
     polygon_in_file(&polygon);
 }
