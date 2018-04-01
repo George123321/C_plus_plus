@@ -3,8 +3,8 @@
 #include <math.h>
 #include "Linked_List.h"
 
-#define MAX 10
-#define N 10
+#define MAX 1000
+#define N 100
 
 void make_points(struct Linked_List *points) {
     for (int point = 0; point < N; point++) {
@@ -67,69 +67,65 @@ void points_in_file(struct Linked_List *lst) {
     }
 }
 
-double polar_angle(float x, float y) {
-    return acos(x/pow(x * x + y * y, 0.5));
-}
-
-double relative_polar_angle(struct Node *start_p, struct Node *p) {
-    return polar_angle(p->x - start_p->x, p->y - start_p->y);
-}
-
-void sort_by_polar_angle(struct Node *start_p, struct Linked_List *points, struct Linked_List *polygon) {
-    while (points->size != 0) {
-        struct Node *p = points->begin;
-        struct Node *p_min = points->begin;
-        double min_angle = relative_polar_angle(start_p, p_min);
-        while (p) {
-            double current_angle = relative_polar_angle(start_p, p);
-            float relative_x = p->x - start_p->x;
-            float relative_y = p->y - start_p->y;
-            if (current_angle == min_angle) {
-                if (relative_x * relative_x + relative_y * relative_y >
-                    (p_min->x - start_p->x) * (p_min->x - start_p->x) +
-                    (p_min->y - start_p->y) * (p_min->y - start_p->y)) {
-                    min_angle = current_angle;
-                    p_min = p;
-                }
-            }
-            else if (current_angle < min_angle) {
-                min_angle = current_angle;
-                p_min = p;
-            }
+void del_repetitions(struct Linked_List *lst, struct Node *node) {
+    struct Node *p = lst->begin;
+    while (p) {
+        if (p != node && p->x == node->x && p->y == node->y) {
+            struct Node *to_del = p;
+            p = p->next;
+            list_del(lst, to_del);
+        }
+        else {
             p = p->next;
         }
-        list_insert(polygon, p_min->x, p_min->y);
-        list_del(points, p_min);
+    }
+    // в итоге остался только node
+}
+
+double angle_between_vecs(float x_1, float y_1, float x_2, float y_2) {
+    if ((x_1 == 0 && y_1 == 0) & (x_2 == 0 && y_2 == 0)) {
+        return (double) 1.0/0.0;
+    }
+    else {
+        return acos((x_1 * x_2 + y_1 * y_2) / (pow((x_1 * x_1 + y_1 * y_1) * (x_2 * x_2 + y_2 * y_2), 0.5)));
     }
 }
 
-float type_of_rotate(struct Node *a, struct Node *b, struct Node *c) {
-    return (b->x - a->x) * (c->y - a->y) - (b->y - a->y) * (c->x - a->x); // компонента z вектора из векторного произведения
+double vec_length_sq(float x, float y) {
+    return x * x + y * y;
 }
 
-void cut_angles(struct Linked_List *polygon) {
-    /* первые две вершины точно принадлежат оболочке. переместимся в эту точку */
-    struct Node *p = polygon->begin->next;
-
-    while (p != polygon->end) {
-        if (p->x == p->next->x && p->y == p->next->y) {
-            list_del(polygon, p->next);
-            continue;
+// ищет точку с минимальным полярным углом относительно данной оси относительно последний точки в конце многоугольника
+struct Node *find_point_min_polar_angle(struct Linked_List *polygon, struct Linked_List *points, const float axis_vec_x, const float axis_vec_y) {
+    struct Node *p = points->begin;
+    struct Node *p_min = points->begin;
+    double min_angle = 10;
+    while (p) {
+        double current_angle = angle_between_vecs(p->x - polygon->end->x, p->y - polygon->end->y, axis_vec_x, axis_vec_y);
+        if (current_angle < min_angle) {
+            p_min = p;
+            min_angle = current_angle;
         }
-        while (type_of_rotate(p->prev, p, p->next) <= 0) {
-            p = p->prev;
-            list_del(polygon, p->next);
+        if (current_angle == min_angle) {
+            if (vec_length_sq(p->x - polygon->end->x, p->y - polygon->end->y) > vec_length_sq(p_min->x - polygon->end->x, p_min->y - polygon->end->y)) {
+                p_min = p;
+            }
         }
         p = p->next;
     }
-}
-
-void del_repetitions(struct Linked_List *lst, struct Node *node) {
-    struct Node *p = lst->begin;
+    return p_min;
 }
 
 void make_polygon(struct Linked_List *points, struct Linked_List *polygon) {
-
+    // найдем точку с минимальным полярным углом, относительно оси x
+    struct Node *new_vertex = find_point_min_polar_angle(polygon, points, 1, 0);
+    list_insert(polygon, new_vertex->x, new_vertex->y);
+    list_del(points, new_vertex);
+    while (!(polygon->end->x == polygon->begin->x && polygon->end->y == polygon->begin->y)) {
+        new_vertex = find_point_min_polar_angle(polygon, points, polygon->end->x - polygon->end->prev->x, polygon->end->y - polygon->end->prev->y);
+        list_insert(polygon, new_vertex->x, new_vertex->y);
+        list_del(points, new_vertex);
+    }
 }
 
 int main() {
@@ -142,9 +138,13 @@ int main() {
     points_in_file(&points);
 
     struct Node *start_p = find_start_point(&points);
+
+    // del_repetitions(&points, start_p); // если хотим убедиться, что повторений нет - включить
+
     list_insert(&polygon, start_p->x, start_p->y);
+    list_insert(&points, start_p->x, start_p->y);
     list_del(&points, start_p);
-    list_insert(&points, start_p->x, start_p->y); // теперь она в конце
+    // теперь стартовая точка находится в конце
 
     make_polygon(&points, &polygon);
 

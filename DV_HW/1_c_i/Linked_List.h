@@ -69,11 +69,9 @@ void list_del(struct Linked_List *lst, struct Node *node) {
             if (node == lst->begin) {
                 lst->begin = node->next;
                 node->next->prev = NULL;
-                node->next = NULL;
             } else if (node == lst->end) {
                 lst->end = node->prev;
                 node->prev->next = NULL;
-                node->prev = NULL;
             } else {
                 node->prev->next = node->next;
                 node->next->prev = node->prev;
