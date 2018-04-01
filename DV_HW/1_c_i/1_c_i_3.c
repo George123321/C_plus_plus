@@ -4,8 +4,8 @@
 #include <time.h>
 #include "Linked_List.h"
 
-#define MAX 10000
-#define N 5000
+#define MAX 10
+#define N 10
 
 void make_points(struct Linked_List *points) {
     for (int point = 0; point < N; point++) {
@@ -131,7 +131,7 @@ void make_polygon(struct Linked_List *points, struct Linked_List *polygon) {
 
 int main() {
     clock_t begin = clock();
-    
+
     struct Linked_List points;
     struct Linked_List polygon;
     list_init(&points);
@@ -150,7 +150,7 @@ int main() {
     // теперь стартовая точка находится в конце
 
     make_polygon(&points, &polygon);
-    
+
     polygon_in_file(&polygon);
 
     clock_t end = clock();
