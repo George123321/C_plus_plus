@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <malloc.h>
 #include <math.h>
+#include <time.h>
 #include "Linked_List.h"
 
 #define MAX 10000
@@ -38,7 +39,7 @@ struct Node *find_start_point(struct Linked_List *points) {
 }
 
 void polygon_in_file(struct Linked_List *lst) {
-    FILE *f = fopen("C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/1_c_i/polygon.csv", "w");
+    FILE *f = fopen("C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/1_c_i/Output/polygon.csv", "w");
     if (f == NULL) {
         printf("Error opening file!\n");
     }
@@ -53,7 +54,7 @@ void polygon_in_file(struct Linked_List *lst) {
 }
 
 void points_in_file(struct Linked_List *lst) {
-    FILE *f = fopen("C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/1_c_i/points.csv", "w");
+    FILE *f = fopen("C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/1_c_i/Output/points.csv", "w");
     if (f == NULL) {
         printf("Error opening file!\n");
     }
@@ -133,6 +134,8 @@ void cut_angles(struct Linked_List *polygon) {
 }
 
 int main() {
+    clock_t begin = clock();
+    
     struct Linked_List points;
     struct Linked_List polygon;
     list_init(&points);
@@ -155,4 +158,8 @@ int main() {
     cut_angles(&polygon);
 
     polygon_in_file(&polygon);
+
+    clock_t end = clock();
+    double time_spent = (double) (end - begin) / CLOCKS_PER_SEC;
+    printf("Spent time: %lf\n", time_spent);
 }

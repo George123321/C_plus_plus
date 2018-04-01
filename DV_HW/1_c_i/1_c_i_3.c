@@ -1,14 +1,15 @@
 #include <stdio.h>
 #include <malloc.h>
 #include <math.h>
+#include <time.h>
 #include "Linked_List.h"
 
-#define MAX 1000
-#define N 100
+#define MAX 10000
+#define N 5000
 
 void make_points(struct Linked_List *points) {
     for (int point = 0; point < N; point++) {
-        list_insert(points, MAX *((float) rand()/RAND_MAX), MAX *((float) rand()/RAND_MAX));
+        list_insert(points, MAX * ((float) rand() / RAND_MAX), MAX * ((float) rand() / RAND_MAX));
     }
 }
 
@@ -38,11 +39,10 @@ struct Node *find_start_point(struct Linked_List *points) {
 }
 
 void polygon_in_file(struct Linked_List *lst) {
-    FILE *f = fopen("C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/1_c_i/polygon.csv", "w");
+    FILE *f = fopen("C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/1_c_i/Output/polygon.csv", "w");
     if (f == NULL) {
         printf("Error opening file!\n");
-    }
-    else {
+    } else {
         struct Node *p = lst->begin;
         fprintf(f, "x,y\n");
         while (p) {
@@ -53,11 +53,10 @@ void polygon_in_file(struct Linked_List *lst) {
 }
 
 void points_in_file(struct Linked_List *lst) {
-    FILE *f = fopen("C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/1_c_i/points.csv", "w");
+    FILE *f = fopen("C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/1_c_i/Output/points.csv", "w");
     if (f == NULL) {
         printf("Error opening file!\n");
-    }
-    else {
+    } else {
         struct Node *p = lst->begin;
         fprintf(f, "x,y\n");
         while (p) {
@@ -74,8 +73,7 @@ void del_repetitions(struct Linked_List *lst, struct Node *node) {
             struct Node *to_del = p;
             p = p->next;
             list_del(lst, to_del);
-        }
-        else {
+        } else {
             p = p->next;
         }
     }
@@ -84,9 +82,8 @@ void del_repetitions(struct Linked_List *lst, struct Node *node) {
 
 double angle_between_vecs(float x_1, float y_1, float x_2, float y_2) {
     if ((x_1 == 0 && y_1 == 0) & (x_2 == 0 && y_2 == 0)) {
-        return (double) 1.0/0.0;
-    }
-    else {
+        return (double) 1.0 / 0.0;
+    } else {
         return acos((x_1 * x_2 + y_1 * y_2) / (pow((x_1 * x_1 + y_1 * y_1) * (x_2 * x_2 + y_2 * y_2), 0.5)));
     }
 }
@@ -96,18 +93,21 @@ double vec_length_sq(float x, float y) {
 }
 
 // ищет точку с минимальным полярным углом относительно данной оси относительно последний точки в конце многоугольника
-struct Node *find_point_min_polar_angle(struct Linked_List *polygon, struct Linked_List *points, const float axis_vec_x, const float axis_vec_y) {
+struct Node *find_point_min_polar_angle(struct Linked_List *polygon, struct Linked_List *points, const float axis_vec_x,
+                                        const float axis_vec_y) {
     struct Node *p = points->begin;
     struct Node *p_min = points->begin;
     double min_angle = 10;
     while (p) {
-        double current_angle = angle_between_vecs(p->x - polygon->end->x, p->y - polygon->end->y, axis_vec_x, axis_vec_y);
+        double current_angle = angle_between_vecs(p->x - polygon->end->x, p->y - polygon->end->y, axis_vec_x,
+                                                  axis_vec_y);
         if (current_angle < min_angle) {
             p_min = p;
             min_angle = current_angle;
         }
         if (current_angle == min_angle) {
-            if (vec_length_sq(p->x - polygon->end->x, p->y - polygon->end->y) > vec_length_sq(p_min->x - polygon->end->x, p_min->y - polygon->end->y)) {
+            if (vec_length_sq(p->x - polygon->end->x, p->y - polygon->end->y) >
+                vec_length_sq(p_min->x - polygon->end->x, p_min->y - polygon->end->y)) {
                 p_min = p;
             }
         }
@@ -122,13 +122,16 @@ void make_polygon(struct Linked_List *points, struct Linked_List *polygon) {
     list_insert(polygon, new_vertex->x, new_vertex->y);
     list_del(points, new_vertex);
     while (!(polygon->end->x == polygon->begin->x && polygon->end->y == polygon->begin->y)) {
-        new_vertex = find_point_min_polar_angle(polygon, points, polygon->end->x - polygon->end->prev->x, polygon->end->y - polygon->end->prev->y);
+        new_vertex = find_point_min_polar_angle(polygon, points, polygon->end->x - polygon->end->prev->x,
+                                                polygon->end->y - polygon->end->prev->y);
         list_insert(polygon, new_vertex->x, new_vertex->y);
         list_del(points, new_vertex);
     }
 }
 
 int main() {
+    clock_t begin = clock();
+    
     struct Linked_List points;
     struct Linked_List polygon;
     list_init(&points);
@@ -147,6 +150,10 @@ int main() {
     // теперь стартовая точка находится в конце
 
     make_polygon(&points, &polygon);
-
+    
     polygon_in_file(&polygon);
+
+    clock_t end = clock();
+    double time_spent = (double) (end - begin) / CLOCKS_PER_SEC;
+    printf("Spent time: %lf\n", time_spent);
 }
