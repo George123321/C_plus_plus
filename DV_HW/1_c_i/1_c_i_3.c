@@ -4,8 +4,8 @@
 #include <time.h>
 #include "Linked_List.h"
 
-#define MAX 10
-#define N 10
+#define MAX 100
+#define N 50
 
 void make_points(struct Linked_List *points) {
     for (int point = 0; point < N; point++) {
@@ -120,12 +120,12 @@ void make_polygon(struct Linked_List *points, struct Linked_List *polygon) {
     // найдем точку с минимальным полярным углом, относительно оси x
     struct Node *new_vertex = find_point_min_polar_angle(polygon, points, 1, 0);
     list_insert(polygon, new_vertex->x, new_vertex->y);
-    list_del(points, new_vertex);
+    //list_del(points, new_vertex);
     while (!(polygon->end->x == polygon->begin->x && polygon->end->y == polygon->begin->y)) {
         new_vertex = find_point_min_polar_angle(polygon, points, polygon->end->x - polygon->end->prev->x,
                                                 polygon->end->y - polygon->end->prev->y);
         list_insert(polygon, new_vertex->x, new_vertex->y);
-        list_del(points, new_vertex);
+        //list_del(points, new_vertex);
     }
 }
 
@@ -145,8 +145,8 @@ int main() {
     // del_repetitions(&points, start_p); // если хотим убедиться, что повторений нет - включить
 
     list_insert(&polygon, start_p->x, start_p->y);
-    list_insert(&points, start_p->x, start_p->y);
-    list_del(&points, start_p);
+    //list_insert(&points, start_p->x, start_p->y);
+    //list_del(&points, start_p);
     // теперь стартовая точка находится в конце
 
     make_polygon(&points, &polygon);
