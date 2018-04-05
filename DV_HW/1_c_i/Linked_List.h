@@ -1,7 +1,3 @@
-//
-// Created by George on 28.03.2018.
-//
-
 #ifndef DV_HW_LINKED_LIST_H
 #define DV_HW_LINKED_LIST_H
 

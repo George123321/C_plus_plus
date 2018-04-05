@@ -3,4 +3,4 @@ project(DV_HW C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(DV_HW_1_c_ii 1_c_ii.c)
+add_executable(DV_HW_1_c_ii 1_c_ii.c Stack.h)
