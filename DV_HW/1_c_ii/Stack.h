@@ -42,6 +42,7 @@ double stack_pop(struct Stack *st) {
         return NAN;
     }
     else {
+        st->size -= 1;
         double to_return = st->head->x;
         struct Node *to_del = st->head;
         st->head = st->head->next;

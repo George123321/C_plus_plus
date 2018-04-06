@@ -130,7 +130,7 @@ void add_to_stack(const char *elem, struct Stack *st) {
     }
 }
 
-int main() {
+char **read_line(int *length) {
     char **words = (char **) calloc(1, sizeof(char *)); //исходный размер массива
 
     int i = 0;
@@ -156,12 +156,21 @@ int main() {
         }
     }
     words[i][j] = '\0';
+    *length = i + 1;
+
+    return words;
+}
+
+int main() {
+    int length = 0;
+
+    char **expression = read_line(&length);
 
     struct Stack s;
     stack_init(&s);
 
-    for (int elem = 0; elem <= i; elem++) {
-        add_to_stack(words[elem], &s);
+    for (int elem = 0; elem < length; elem++) {
+        add_to_stack(expression[elem], &s);
     }
 
     stack_print(&s);
