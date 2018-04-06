@@ -4,19 +4,6 @@
 #include <string.h>
 #include <ctype.h>
 
-/* функция, которая проверяет наличие слова в массиве */
-int is_in(char *str, char **str_array, int number_of_elements) {
-    if (number_of_elements == 0) {
-        return 0;
-    }
-    for (int i = 0; i < number_of_elements; i++) {
-        if (strcmp(str, str_array[i]) == 0) { // если строки равны
-            return 1;
-        }
-    }
-    return 0;
-}
-
 void add_to_stack(const char *elem, struct Stack *st) {
     char binary_operations[5][2] = {"+", "-", "*", "/", "^"};
     char unar_operations[7][6] = {"sqrt", "sin", "cos", "tan", "ln", "log10", "exp"};
@@ -161,7 +148,7 @@ char **read_line(int *length) {
     return words;
 }
 
-void calculate(const int length, char **expression) {
+double calculate(const int length, const char **expression) {
     struct Stack s;
     stack_init(&s);
 
@@ -169,37 +156,80 @@ void calculate(const int length, char **expression) {
         add_to_stack(expression[elem], &s);
     }
 
-    stack_print(&s);
+    //stack_print(&s);
+    return stack_pop(&s);
 }
 
-void calculate_postfix_variable(const int length, char **expression, double x) {
+double calculate_postfix_variable(const int length, const char **expression, double x) {
+    char **expression_copy = (char **)malloc(length* sizeof(char *));
+    for (int i = 0; i < length; i++) {
+        expression_copy[i] = (char *)malloc(sizeof(expression[i]));
+        strcpy(expression_copy[i], expression[i]);
+    }
+
     for (int i = 0; i < length; i++) {
         if (strcmp(expression[i], "x") == 0) {
-            sprintf(expression[i], "%lf", x);
+            sprintf(expression_copy[i], "%lf", x);
         }
     }
-    calculate(length, expression);
+    return calculate(length, (const char**)expression_copy);;
 }
 
-int calculate_postfix(const int length, char **expression) {
+double calculate_postfix(const int length, const char **expression) {
     double x = 0;
     for (int i = 0; i < length; i++) {
         if (strcmp(expression[i], "x") == 0) {
             printf("Variable found. Enter its value.\n");
             scanf("%lf", &x);
-            calculate_postfix_variable(length, expression, x);
-            return 0;
+            return calculate_postfix_variable(length, expression, x);
         }
     }
-    calculate(length, expression);
-    return 0;
+    return calculate(length, expression);
 }
+
+double *linspace(double x_left, double x_right, int num) {
+    double *x = malloc((num + 1) * sizeof(double));
+
+    for (int i = 0; i <= num; i++) {
+        x[i] = x_left + ((x_right - x_left) / num ) * i;
+        //printf("%lf\n", x[i]);
+    }
+    return x;
+}
+
+double *func_array(const int length, const char **func, double *x, int num) {
+    double *y = malloc((num + 1) * sizeof(double));
+
+    for (int i = 0; i <= num; i++) {
+        y[i] = calculate_postfix_variable(length, func, x[i]);
+        //printf("%lf\n", y[i]);
+    }
+    return y;
+}
+
+void vec_x_y_file(double *x, double *y, int num) {
+    FILE *f = fopen("C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/1_c_ii/Output/data_x.csv", "w");
+    if (f == NULL) {
+        printf("Error opening file!\n");
+    } else {
+        fprintf(f, "x,y\n");
+        for (int i = 0; i <= num; i++) {
+            fprintf(f, "%lf,%lf\n", x[i], y[i]);
+        }
+    }
+}
+
 
 int main() {
     int length = 0;
-    char **expression = read_line(&length);
+    const char **expression = (const char **)read_line(&length);
 
-    calculate_postfix(length, expression);
+    int num = 1000;
+
+    double *x = linspace(0, 100, num);
+    double *y = func_array(length, expression, x, num);
+
+    vec_x_y_file(x, y, num);
 
     return 0;
 
