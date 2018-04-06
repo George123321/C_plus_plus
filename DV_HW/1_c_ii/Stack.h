@@ -4,7 +4,7 @@
 #include <math.h>
 
 struct Node {
-    float x;
+    double x;
     struct Node *next;
 };
 
@@ -18,7 +18,7 @@ void stack_init(struct Stack *st) {
     st->size = 0;
 }
 
-void stack_push(struct Stack *st, const float data) {
+void stack_push(struct Stack *st, const double data) {
     st->size += 1;
 
     struct Node *p = malloc(sizeof(*p));
@@ -37,12 +37,12 @@ int is_empty(struct Stack *st) {
     return (st->size == 0) ? 1 : 0 ;
 }
 
-float stack_pop(struct Stack *st) {
+double stack_pop(struct Stack *st) {
     if (is_empty(st)) {
         return NAN;
     }
     else {
-        float to_return = st->head->x;
+        double to_return = st->head->x;
         struct Node *to_del = st->head;
         st->head = st->head->next;
         to_del->next = NULL;
@@ -53,6 +53,7 @@ float stack_pop(struct Stack *st) {
 
 void stack_print(struct Stack *st) {
     struct Node *p = st->head;
+    printf("\n");
     while (p) {
         printf("%f\n", p->x);
         p = p->next;
