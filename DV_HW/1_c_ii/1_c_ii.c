@@ -161,11 +161,7 @@ char **read_line(int *length) {
     return words;
 }
 
-int main() {
-    int length = 0;
-
-    char **expression = read_line(&length);
-
+void calculate(const int length, char **expression) {
     struct Stack s;
     stack_init(&s);
 
@@ -174,6 +170,36 @@ int main() {
     }
 
     stack_print(&s);
+}
+
+void calculate_postfix_variable(const int length, char **expression, double x) {
+    for (int i = 0; i < length; i++) {
+        if (strcmp(expression[i], "x") == 0) {
+            sprintf(expression[i], "%lf", x);
+        }
+    }
+    calculate(length, expression);
+}
+
+int calculate_postfix(const int length, char **expression) {
+    double x = 0;
+    for (int i = 0; i < length; i++) {
+        if (strcmp(expression[i], "x") == 0) {
+            printf("Variable found. Enter its value.\n");
+            scanf("%lf", &x);
+            calculate_postfix_variable(length, expression, x);
+            return 0;
+        }
+    }
+    calculate(length, expression);
+    return 0;
+}
+
+int main() {
+    int length = 0;
+    char **expression = read_line(&length);
+
+    calculate_postfix(length, expression);
 
     return 0;
 
