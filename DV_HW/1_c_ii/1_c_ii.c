@@ -8,7 +8,7 @@ void add_to_stack(const char *elem, struct Stack *st) {
     char binary_operations[5][2] = {"+", "-", "*", "/", "^"};
     char unar_operations[7][6] = {"sqrt", "sin", "cos", "tan", "ln", "log10", "exp"};
 
-    if (isdigit(elem[0])) {
+    if (isdigit(elem[0]) | isdigit(elem[1])) {
         double d = strtod(elem, NULL);
         stack_push(st, d);
     } else {
@@ -76,10 +76,11 @@ void add_to_stack(const char *elem, struct Stack *st) {
                             stack_push(st, cos(x));
                             break;
                         case 3:
-                            if (2 * x / M_PI == (int) (2 * x / M_PI)) { // если при делении на пи/2 получилось целое число
+                            if (2 * x / M_PI ==
+                                (int) (2 * x / M_PI)) { // если при делении на пи/2 получилось целое число
                                 stack_push(st, NAN);
                                 printf("Tan Error");
-                                exit(0);
+                                //exit(0);
                             }
                             stack_push(st, tan(x));
                             break;
@@ -157,13 +158,18 @@ double calculate(const int length, const char **expression) {
     }
 
     //stack_print(&s);
+    for (int i = 0; i < length; i++) {
+        free((char*)expression[i]);
+    }
+    free(expression);
+
     return stack_pop(&s);
 }
 
 double calculate_postfix_variable(const int length, const char **expression, double x) {
-    char **expression_copy = (char **)malloc(length* sizeof(char *));
+    char **expression_copy = (char **) malloc(length * sizeof(char *));
     for (int i = 0; i < length; i++) {
-        expression_copy[i] = (char *)malloc(sizeof(expression[i]));
+        expression_copy[i] = (char *) malloc(sizeof(expression[i]));
         strcpy(expression_copy[i], expression[i]);
     }
 
@@ -172,7 +178,7 @@ double calculate_postfix_variable(const int length, const char **expression, dou
             sprintf(expression_copy[i], "%lf", x);
         }
     }
-    return calculate(length, (const char**)expression_copy);;
+    return calculate(length, (const char **) expression_copy);
 }
 
 double calculate_postfix(const int length, const char **expression) {
@@ -191,7 +197,7 @@ double *linspace(double x_left, double x_right, int num) {
     double *x = malloc((num + 1) * sizeof(double));
 
     for (int i = 0; i <= num; i++) {
-        x[i] = x_left + ((x_right - x_left) / num ) * i;
+        x[i] = x_left + ((x_right - x_left) / num) * i;
         //printf("%lf\n", x[i]);
     }
     return x;
@@ -207,8 +213,8 @@ double *func_array(const int length, const char **func, double *x, int num) {
     return y;
 }
 
-void vec_x_y_file(double *x, double *y, int num) {
-    FILE *f = fopen("C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/1_c_ii/Output/data_x.csv", "w");
+void write_ans_file(double *x, double *y, int num) {
+    FILE *f = fopen("C:/Users/George/Desktop/git_projects/C_plus_plus/DV_HW/1_c_ii/Output/data.csv", "w");
     if (f == NULL) {
         printf("Error opening file!\n");
     } else {
@@ -219,18 +225,27 @@ void vec_x_y_file(double *x, double *y, int num) {
     }
 }
 
-
 int main() {
     int length = 0;
-    const char **expression = (const char **)read_line(&length);
+    const char **expression = (const char **) read_line(&length);
 
-    int num = 1000;
+    int num = 1000000;
 
-    double *x = linspace(0, 100, num);
+    double *x = linspace(1, 8*M_PI, num);
     double *y = func_array(length, expression, x, num);
 
-    vec_x_y_file(x, y, num);
+    write_ans_file(x, y, num);
 
+    free(x);
+    free(y);
+
+    for (int i = 0; i < length; i++) {
+        free((char *)expression[i]);
+    }
+    free(expression);
+
+    //int r = 0;
+    //scanf("%d", &r);
     return 0;
 
 }
