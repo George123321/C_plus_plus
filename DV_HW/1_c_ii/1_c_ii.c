@@ -4,50 +4,100 @@
 #include <string.h>
 #include <ctype.h>
 
-void add_to_stack(const char *elem, struct Stack *st) {
+void doMath( char *elem, struct Stack *st) {
     char binary_operations[5][2] = {"+", "-", "*", "/", "^"};
     char unar_operations[7][6] = {"sqrt", "sin", "cos", "tan", "ln", "log10", "exp"};
 
-    if (isdigit(elem[0]) | isdigit(elem[1])) {
-        double d = strtod(elem, NULL);
-        stack_push(st, d);
-    } else {
-        // посмотрим, какая операция
-        int type_of_binary_operation = -1;
-        int type_of_unar_operation = -1;
-        for (int i = 0; i < 5; i++) {
-            if (strcmp(elem, binary_operations[i]) == 0) {
-                type_of_binary_operation = i;
+    // посмотрим, какая операция
+    int type_of_binary_operation = -1;
+    int type_of_unar_operation = -1;
+    for (int i = 0; i < 5; i++) {
+        if (strcmp(elem, binary_operations[i]) == 0) {
+            type_of_binary_operation = i;
 
+            double x = stack_pop(st);
+            double y = stack_pop(st);
+            switch (type_of_binary_operation) {
+                case 0:
+                    stack_push(st, y + x);
+                    break;
+                case 1:
+                    stack_push(st, y - x);
+                    break;
+                case 2:
+                    stack_push(st, y * x);
+                    break;
+                case 3:
+                    if (x == 0) {
+                        stack_push(st, NAN);
+                        printf("Division by zero");
+                        return;
+                    }
+                    stack_push(st, y / x);
+                    break;
+                case 4:
+                    if (y <= 0) {
+                        if (x != (int) x) { // если x не целый
+                            stack_push(st, NAN);
+                            printf("Pow Error");
+                            return;
+                        }
+                    }
+                    stack_push(st, pow(y, x));
+                    break;
+                default:
+                    break;
+            }
+            break;
+        }
+    }
+    if (type_of_binary_operation == -1) { // тогда ищем унарную операцию
+        for (int i = 0; i < 7; i++) {
+            if (strcmp(elem, unar_operations[i]) == 0) {
+                type_of_unar_operation = i;
                 double x = stack_pop(st);
-                double y = stack_pop(st);
-                switch (type_of_binary_operation) {
+                switch (type_of_unar_operation) {
                     case 0:
-                        stack_push(st, y + x);
+                        if (x < 0) {
+                            stack_push(st, NAN);
+                            printf("Pow Error");
+                            return;
+                        }
+                        stack_push(st, pow(x, 0.5));
                         break;
                     case 1:
-                        stack_push(st, y - x);
+                        stack_push(st, sin(x));
                         break;
                     case 2:
-                        stack_push(st, y * x);
+                        stack_push(st, cos(x));
                         break;
                     case 3:
-                        if (x == 0) {
+                        if (2 * x / M_PI ==
+                            (int) (2 * x / M_PI)) { // если при делении на пи/2 получилось целое число
                             stack_push(st, NAN);
-                            printf("Division by zero");
-                            exit(0);
+                            printf("Tan Error");
+                            return;
                         }
-                        stack_push(st, y / x);
+                        stack_push(st, tan(x));
                         break;
                     case 4:
-                        if (y <= 0) {
-                            if (x != (int) x) { // если x не целый
-                                stack_push(st, NAN);
-                                printf("Pow Error");
-                                exit(0);
-                            }
+                        if (x <= 0) {
+                            stack_push(st, NAN);
+                            printf("LOG Error");
+                            return;
                         }
-                        stack_push(st, pow(y, x));
+                        stack_push(st, log(x));
+                        break;
+                    case 5:
+                        if (x <= 0) {
+                            stack_push(st, NAN);
+                            printf("LOG Error");
+                            return;
+                        }
+                        stack_push(st, log10(x));
+                        break;
+                    case 6:
+                        stack_push(st, exp(x));
                         break;
                     default:
                         break;
@@ -55,66 +105,23 @@ void add_to_stack(const char *elem, struct Stack *st) {
                 break;
             }
         }
-        if (type_of_binary_operation == -1) { // тогда ищем унарную операцию
-            for (int i = 0; i < 7; i++) {
-                if (strcmp(elem, unar_operations[i]) == 0) {
-                    type_of_unar_operation = i;
-                    double x = stack_pop(st);
-                    switch (type_of_unar_operation) {
-                        case 0:
-                            if (x < 0) {
-                                stack_push(st, NAN);
-                                printf("Pow Error");
-                                exit(0);
-                            }
-                            stack_push(st, pow(x, 0.5));
-                            break;
-                        case 1:
-                            stack_push(st, sin(x));
-                            break;
-                        case 2:
-                            stack_push(st, cos(x));
-                            break;
-                        case 3:
-                            if (2 * x / M_PI ==
-                                (int) (2 * x / M_PI)) { // если при делении на пи/2 получилось целое число
-                                stack_push(st, NAN);
-                                printf("Tan Error");
-                                //exit(0);
-                            }
-                            stack_push(st, tan(x));
-                            break;
-                        case 4:
-                            if (x <= 0) {
-                                stack_push(st, NAN);
-                                printf("LOG Error");
-                                exit(0);
-                            }
-                            stack_push(st, log(x));
-                            break;
-                        case 5:
-                            if (x <= 0) {
-                                stack_push(st, NAN);
-                                printf("LOG Error");
-                                exit(0);
-                            }
-                            stack_push(st, log10(x));
-                            break;
-                        case 6:
-                            stack_push(st, exp(x));
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
-                }
-            }
-        }
-        if (type_of_unar_operation == -1 && type_of_binary_operation == -1) {
-            printf("There is no such operation: \"%s\".", elem);
-            stack_push(st, NAN);
-            exit(0);
-        }
+    }
+    if (type_of_unar_operation == -1 && type_of_binary_operation == -1) {
+        printf("There is no such operation: \"%s\".", elem);
+        stack_push(st, NAN);
+        return;
+    }
+}
+
+void add_to_stack( char *elem, struct Stack *st) {
+    char binary_operations[5][2] = {"+", "-", "*", "/", "^"};
+    char unar_operations[7][6] = {"sqrt", "sin", "cos", "tan", "ln", "log10", "exp"};
+
+    if (isdigit(elem[0]) | isdigit(elem[1])) {
+        double d = strtod(elem, NULL);
+        stack_push(st, d);
+    } else {
+        doMath(elem, st);
     }
 }
 
@@ -149,24 +156,22 @@ char **read_line(int *length) {
     return words;
 }
 
-double calculate(const int length, const char **expression) {
+double calculate( int length,  char **expression) {
     struct Stack s;
     stack_init(&s);
 
     for (int elem = 0; elem < length; elem++) {
         add_to_stack(expression[elem], &s);
+        if (s.head->x != s.head->x) {
+            break;
+        }
     }
 
     //stack_print(&s);
-    for (int i = 0; i < length; i++) {
-        free((char*)expression[i]);
-    }
-    free(expression);
-
     return stack_pop(&s);
 }
 
-double calculate_postfix_variable(const int length, const char **expression, double x) {
+double calculate_postfix_variable( int length,  char **expression, double x) {
     char **expression_copy = (char **) malloc(length * sizeof(char *));
     for (int i = 0; i < length; i++) {
         expression_copy[i] = (char *) malloc(sizeof(expression[i]));
@@ -178,10 +183,19 @@ double calculate_postfix_variable(const int length, const char **expression, dou
             sprintf(expression_copy[i], "%lf", x);
         }
     }
-    return calculate(length, (const char **) expression_copy);
+
+    double ans = calculate(length, expression_copy);
+
+    for (int i = 0; i < length; i++) {
+        char *ptr = expression_copy[i];
+        free(ptr);
+    }
+    free(expression_copy);
+
+    return ans;
 }
 
-double calculate_postfix(const int length, const char **expression) {
+double calculate_postfix( int length,  char **expression) {
     double x = 0;
     for (int i = 0; i < length; i++) {
         if (strcmp(expression[i], "x") == 0) {
@@ -203,7 +217,7 @@ double *linspace(double x_left, double x_right, int num) {
     return x;
 }
 
-double *func_array(const int length, const char **func, double *x, int num) {
+double *func_array( int length,  char **func, double *x, int num) {
     double *y = malloc((num + 1) * sizeof(double));
 
     for (int i = 0; i <= num; i++) {
@@ -220,18 +234,23 @@ void write_ans_file(double *x, double *y, int num) {
     } else {
         fprintf(f, "x,y\n");
         for (int i = 0; i <= num; i++) {
-            fprintf(f, "%lf,%lf\n", x[i], y[i]);
+            if (y[i] != y[i]) { // это значит, если NAN
+                fprintf(f, "%lf,%s\n", x[i], "NaN");
+            }
+            else {
+                fprintf(f, "%lf,%lf\n", x[i], y[i]);
+            }
         }
     }
 }
 
 int main() {
     int length = 0;
-    const char **expression = (const char **) read_line(&length);
+    char **expression = read_line(&length);
 
-    int num = 1000000;
+    int num = 1000;
 
-    double *x = linspace(1, 8*M_PI, num);
+    double *x = linspace(0, 10, num);
     double *y = func_array(length, expression, x, num);
 
     write_ans_file(x, y, num);
@@ -240,12 +259,10 @@ int main() {
     free(y);
 
     for (int i = 0; i < length; i++) {
-        free((char *)expression[i]);
+        char *expr_ptr = expression[i];
+        free(expr_ptr);
     }
     free(expression);
 
-    //int r = 0;
-    //scanf("%d", &r);
     return 0;
-
 }

@@ -4,8 +4,8 @@
 #include <time.h>
 #include "Linked_List.h"
 
-#define MAX 10000
-#define N 5000
+#define MAX 10
+#define N 10
 
 void make_points(struct Linked_List *points) {
     for (int point = 0; point < N; point++) {
@@ -109,7 +109,11 @@ void sort_by_polar_angle(float start_p_x, float start_p_y, struct Linked_List *p
         list_insert(polygon, p_min->x, p_min->y);
         list_del(points, p_min);
     }
-    //free(start_p); //Signal: SIGTRAP (Trace/breakpoint trap)
+
+    start_p->next = NULL;
+    start_p->prev = NULL;
+    start_p = NULL;
+    free(start_p);
 }
 
 float type_of_rotate(struct Node *a, struct Node *b, struct Node *c) {
