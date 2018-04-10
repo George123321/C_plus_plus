@@ -30,7 +30,7 @@ void doMath( char *elem, struct Stack *st) {
                 case 3:
                     if (x == 0) {
                         stack_push(st, NAN);
-                        printf("Division by zero");
+                        printf("Division by zero\n");
                         return;
                     }
                     stack_push(st, y / x);
@@ -39,7 +39,7 @@ void doMath( char *elem, struct Stack *st) {
                     if (y <= 0) {
                         if (x != (int) x) { // если x не целый
                             stack_push(st, NAN);
-                            printf("Pow Error");
+                            printf("Pow Error\n");
                             return;
                         }
                     }
@@ -60,7 +60,7 @@ void doMath( char *elem, struct Stack *st) {
                     case 0:
                         if (x < 0) {
                             stack_push(st, NAN);
-                            printf("Pow Error");
+                            printf("Pow Error\n");
                             return;
                         }
                         stack_push(st, pow(x, 0.5));
@@ -75,7 +75,7 @@ void doMath( char *elem, struct Stack *st) {
                         if (2 * x / M_PI ==
                             (int) (2 * x / M_PI)) { // если при делении на пи/2 получилось целое число
                             stack_push(st, NAN);
-                            printf("Tan Error");
+                            printf("Tan Error\n");
                             return;
                         }
                         stack_push(st, tan(x));
@@ -83,7 +83,7 @@ void doMath( char *elem, struct Stack *st) {
                     case 4:
                         if (x <= 0) {
                             stack_push(st, NAN);
-                            printf("LOG Error");
+                            printf("LOG Error\n");
                             return;
                         }
                         stack_push(st, log(x));
@@ -91,7 +91,7 @@ void doMath( char *elem, struct Stack *st) {
                     case 5:
                         if (x <= 0) {
                             stack_push(st, NAN);
-                            printf("LOG Error");
+                            printf("LOG Error\n");
                             return;
                         }
                         stack_push(st, log10(x));
@@ -114,9 +114,6 @@ void doMath( char *elem, struct Stack *st) {
 }
 
 void add_to_stack( char *elem, struct Stack *st) {
-    char binary_operations[5][2] = {"+", "-", "*", "/", "^"};
-    char unar_operations[7][6] = {"sqrt", "sin", "cos", "tan", "ln", "log10", "exp"};
-
     if (isdigit(elem[0]) | isdigit(elem[1])) {
         double d = strtod(elem, NULL);
         stack_push(st, d);
@@ -173,8 +170,16 @@ double calculate( int length,  char **expression) {
 
 double calculate_postfix_variable( int length,  char **expression, double x) {
     char **expression_copy = (char **) malloc(length * sizeof(char *));
+    if(expression_copy == NULL) {
+        printf("Malloc error");
+        exit(0);
+    }
     for (int i = 0; i < length; i++) {
         expression_copy[i] = (char *) malloc(sizeof(expression[i]));
+        if(expression_copy[i] == NULL) {
+            printf("Malloc error");
+            exit(0);
+        }
         strcpy(expression_copy[i], expression[i]);
     }
 
@@ -209,6 +214,10 @@ double calculate_postfix( int length,  char **expression) {
 
 double *linspace(double x_left, double x_right, int num) {
     double *x = malloc((num + 1) * sizeof(double));
+    if (x == NULL) {
+        printf("Malloc error");
+        exit(0);
+    }
 
     for (int i = 0; i <= num; i++) {
         x[i] = x_left + ((x_right - x_left) / num) * i;
@@ -219,6 +228,10 @@ double *linspace(double x_left, double x_right, int num) {
 
 double *func_array( int length,  char **func, double *x, int num) {
     double *y = malloc((num + 1) * sizeof(double));
+    if(y == NULL) {
+        printf("Malloc error");
+        exit(0);
+    }
 
     for (int i = 0; i <= num; i++) {
         y[i] = calculate_postfix_variable(length, func, x[i]);
@@ -248,15 +261,16 @@ int main() {
     int length = 0;
     char **expression = read_line(&length);
 
-    int num = 1000;
+    int num = 3;
 
-    double *x = linspace(0, 10, num);
+    double *x = linspace(-50, 50, num);
     double *y = func_array(length, expression, x, num);
 
     write_ans_file(x, y, num);
 
     free(x);
     free(y);
+
 
     for (int i = 0; i < length; i++) {
         char *expr_ptr = expression[i];

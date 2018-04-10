@@ -112,8 +112,8 @@ void sort_by_polar_angle(float start_p_x, float start_p_y, struct Linked_List *p
 
     start_p->next = NULL;
     start_p->prev = NULL;
-    start_p = NULL;
     free(start_p);
+    start_p = NULL;
 }
 
 float type_of_rotate(struct Node *a, struct Node *b, struct Node *c) {
