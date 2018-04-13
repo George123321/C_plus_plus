@@ -142,8 +142,6 @@ int main() {
 
     struct Node *start_p = find_start_point(&points);
 
-    // del_repetitions(&points, start_p); // если хотим убедиться, что повторений нет - включить
-
     list_insert(&polygon, start_p->x, start_p->y);
     list_insert(&points, start_p->x, start_p->y);
     //list_del(&points, start_p);

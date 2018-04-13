@@ -5,7 +5,7 @@
 #include "Linked_List.h"
 
 #define MAX 10
-#define N 10
+#define N 50
 
 void make_points(struct Linked_List *points) {
     for (int point = 0; point < N; point++) {
@@ -82,7 +82,7 @@ double relative_polar_angle(struct Node *start_p, struct Node *p) {
 }
 
 void sort_by_polar_angle(float start_p_x, float start_p_y, struct Linked_List *points, struct Linked_List *polygon) {
-    struct Node *start_p = malloc(sizeof(start_p));
+    struct Node *start_p = malloc(sizeof(struct Node));
     node_init(start_p, start_p_x, start_p_y);
     while (points->size != 0) {
         struct Node *p = points->begin;
@@ -110,8 +110,6 @@ void sort_by_polar_angle(float start_p_x, float start_p_y, struct Linked_List *p
         list_del(points, p_min);
     }
 
-    start_p->next = NULL;
-    start_p->prev = NULL;
     free(start_p);
     start_p = NULL;
 }
