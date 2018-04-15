@@ -4,25 +4,19 @@
 #include <ctype.h>
 #include "Stack.h"
 
-#define inaccuracy 1e-8
 #define BUFFER_SIZE 255
-#define NUMBER_ELEMENTS 15
-#define NUMBER_ONE_CHAR_ELEMS 7
 #define NUMBER_OF_BINARY 5
 #define NUMBER_OF_UNAR 7
 #define NUMBER_OF_STACK_CONTAINS 13
 typedef struct Stack STACK;
 
-char one_char_elems[NUMBER_ELEMENTS][2] = {"+", "-", "*", "/", "^", "(", ")"};
-char good_elems[NUMBER_ELEMENTS][6] = {"+", "-", "*", "/", "^", "(", ")", "sqrt", "sin", "cos", "tan", "ln", "log10",
-                                       "exp", "x"};
 char binary_operations[NUMBER_OF_BINARY][2] = {"+", "-", "*", "/", "^"};
-char stack_contain[NUMBER_OF_STACK_CONTAINS][6] = {"(", "sqrt", "sin", "cos", "tan", "ln", "log10", "exp", "+", "-",
-                                                   "*", "/", "^"};
-int priority_stack[NUMBER_OF_STACK_CONTAINS] = {1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 4};
 char unar_operations[NUMBER_OF_UNAR][6] = {"sqrt", "sin", "cos", "tan", "ln", "log10", "exp"};
-char multi_char_elems[
-        NUMBER_ELEMENTS - NUMBER_ONE_CHAR_ELEMS][6] = {"sqrt", "sin", "cos", "tan", "ln", "log10", "exp", "x"};
+char stack_contain[NUMBER_OF_STACK_CONTAINS][6] =
+        {"(", "sqrt", "sin", "cos", "tan", "ln", "log10", "exp", "+", "-", "*", "/", "^"};
+int priority_stack[NUMBER_OF_STACK_CONTAINS] = {1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 4};
+
+
 char str[BUFFER_SIZE];
 int type_arr[BUFFER_SIZE];
 char buffer[BUFFER_SIZE][BUFFER_SIZE];
@@ -30,26 +24,25 @@ char prefix[BUFFER_SIZE][BUFFER_SIZE];
 int length = 0;
 
 int is_good(char *elem) {
-    for (int i = 0; i < NUMBER_ELEMENTS; i++) {
-        if (strcmp(elem, good_elems[i]) == 0) {
+    for (int i = 0; i < NUMBER_OF_BINARY; i++) {
+        if (strcmp(elem, binary_operations[i]) == 0) {
             return 1;
         }
+    }
+    for (int i = 0; i < NUMBER_OF_UNAR; i++) {
+        if (strcmp(elem, unar_operations[i]) == 0) {
+            return 1;
+        }
+    }
+    if (strcmp(elem, "x") == 0 | strcmp(elem, "(") == 0 | strcmp(elem, ")") == 0) {
+        return 1;
     }
     return 0;
 }
 
 int is_in_one_char_elems(char *elem) {
-    for (int i = 0; i < NUMBER_ONE_CHAR_ELEMS; i++) {
-        if (strcmp(elem, one_char_elems[i]) == 0) {
-            return 1;
-        }
-    }
-    return 0;
-}
-
-int is_in_multi_char_elems(char *elem) {
-    for (int i = 0; i < NUMBER_ELEMENTS - NUMBER_ONE_CHAR_ELEMS; i++) {
-        if (strcmp(elem, multi_char_elems[i]) == 0) {
+    for (int i = 0; i < NUMBER_OF_BINARY; i++) {
+        if (strcmp(elem, binary_operations[i]) == 0 | strcmp(elem, "(") == 0 | strcmp(elem, ")") == 0) {
             return 1;
         }
     }
@@ -74,23 +67,6 @@ int is_unar_operation(char *elem) {
     return 0;
 }
 
-
-void read_line_1() {
-    char c;
-    int i = 0;
-    int j = 0;
-    while ((c = getchar()) != '\n') {
-        if (c != ' ') {
-            buffer[i][j] = c;
-            j++;
-        } else {
-            buffer[i][j] = '\0';
-            j = 0;
-            i++;
-        }
-    }
-    length = i;
-}
 
 void read_line() {
     char c;
