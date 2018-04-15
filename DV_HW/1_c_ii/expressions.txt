@@ -1,2 +1,4 @@
 5 0.31 * sin 0.31 2 ^ * exp 0.31 2 ^ / sin 0.31 2 ^ 5 * 0.31 sin + exp cos / ln 0.31 2 ^ *
 5 x * sin x 2 ^ * exp x 2 ^ / sin x 2 ^ 5 * x sin + exp cos / ln x 2 ^ *
+
+x^2*ln((sin((exp(x^2*sin(5*x)))/(x^2)))/(cos(exp(5*x^2+sin(x)))))
