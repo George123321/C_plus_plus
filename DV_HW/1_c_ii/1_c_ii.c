@@ -21,7 +21,7 @@ void doMath(char *elem, struct Stack *st) {
     }
     if (type_of_binary_operation != -1) {
         if (st->size <= 1) {
-            printf("The binary operator is applied to too few numbers (requires 2).");
+            printf("The binary operator is applied to too few numbers (requires 2).\n");
             stack_push(st, NAN);
             return;
         }
@@ -59,8 +59,7 @@ void doMath(char *elem, struct Stack *st) {
             default:
                 break;
         }
-    }
-    else { // тогда ищем унарную операцию
+    } else { // тогда ищем унарную операцию
         for (int i = 0; i < 7; i++) {
             if (strcmp(elem, unar_operations[i]) == 0) {
                 type_of_unar_operation = i;
@@ -131,10 +130,11 @@ int word_is_number(char *word) {
     if (word[0] == '.') {
         number_of_points++;
     }
-    if (!(isdigit(word[0]) || word[0] == '.')) {
+    if (!(isdigit(word[0]) || word[0] == '.' || word[0] == '+' || word[0] == '-')) {
         return 0;
     } else {
-        if (strcmp(word, ".") == 0 || strcmp(word, "+.") == 0 || strcmp(word, "-.") == 0) { // на самом деле, костыль
+        if (strcmp(word, ".") == 0 || strcmp(word, "+.") == 0 || strcmp(word, "-.") == 0 || strcmp(word, "+") == 0 ||
+            strcmp(word, "-") == 0) { // на самом деле, костыль
             return 0;
         }
         for (int i = 1; i < strlen(word); i++) {
@@ -157,8 +157,7 @@ int word_is_number(char *word) {
 void add_to_stack(char *elem, struct Stack *st, double x) {
     if (strcmp(elem, "x") == 0) {
         stack_push(st, x);
-    }
-    else if (word_is_number(elem)) {
+    } else if (word_is_number(elem)) {
         double d = strtod(elem, NULL); // DONE: 10sqrt - исправить проверку на число. Жесткая проверка на число, или x
         stack_push(st, d);
     } else {
@@ -197,7 +196,7 @@ char **read_line(int *length) {
     return words;
 }
 
-double calculate( int length,  char **expression, double x) {
+double calculate(int length, char **expression, double x) {
     struct Stack s;
     stack_init(&s);
 
@@ -210,7 +209,7 @@ double calculate( int length,  char **expression, double x) {
     return stack_pop(&s);
 }
 
-double calculate_postfix_variable( int length,  char **expression, double x) {
+double calculate_postfix_variable(int length, char **expression, double x) {
     /*
     char **expression_copy = (char **) malloc(length * sizeof(char *));
     if(expression_copy == NULL) {
@@ -243,7 +242,7 @@ double calculate_postfix_variable( int length,  char **expression, double x) {
     return ans;
 }
 
-double calculate_postfix(int length,  char **expression) {
+double calculate_postfix(int length, char **expression) {
     double x = 0;
     for (int i = 0; i < length; i++) {
         if (strcmp(expression[i], "x") == 0) {
@@ -268,9 +267,9 @@ double *linspace(double x_left, double x_right, int num) { // TODO: вводит
     return x;
 }
 
-double *func_array( int length,  char **func, double *x, int num) {
+double *func_array(int length, char **func, double *x, int num) {
     double *y = malloc((num + 1) * sizeof(double));
-    if(y == NULL) {
+    if (y == NULL) {
         printf("Malloc error in function \"func_array\"\n"); // DONE: написать название функции, из которой программа вылетела
         exit(0);
     }
@@ -290,8 +289,7 @@ void write_ans_file(double *x, double *y, int num) {
         for (int i = 0; i <= num; i++) {
             if (y[i] != y[i]) { // это значит, если NAN
                 fprintf(f, "%lf,%s\n", x[i], "NaN");
-            }
-            else {
+            } else {
                 fprintf(f, "%lf,%lf\n", x[i], y[i]);
             }
         }
@@ -306,7 +304,7 @@ int main() {
     int length = 0;
     char **expression = read_line(&length);
 
-    int num = 100;
+    /*int num = 100;
 
     double *x = linspace(-15, 15, num);
     double *y = func_array(length, expression, x, num);
@@ -320,7 +318,7 @@ int main() {
         char *expr_ptr = expression[i];
         free(expr_ptr);
     }
-    free(expression);
-    //printf("%lf\n", calculate_postfix(length,expression));
+    free(expression);*/
+    printf("%lf\n", calculate_postfix(length, expression));
     return 0;
 }

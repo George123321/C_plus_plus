@@ -7,14 +7,14 @@
 #define BUFFER_SIZE 255
 #define NUMBER_OF_BINARY 5
 #define NUMBER_OF_UNAR 7
-#define NUMBER_OF_STACK_CONTAINS 13
+#define NUMBER_OF_STACK_CONTAINS 6
 typedef struct Stack STACK;
 
 char binary_operations[NUMBER_OF_BINARY][2] = {"+", "-", "*", "/", "^"};
 char unar_operations[NUMBER_OF_UNAR][6] = {"sqrt", "sin", "cos", "tan", "ln", "log10", "exp"};
 char stack_contain[NUMBER_OF_STACK_CONTAINS][6] =
-        {"(", "sqrt", "sin", "cos", "tan", "ln", "log10", "exp", "+", "-", "*", "/", "^"};
-int priority_stack[NUMBER_OF_STACK_CONTAINS] = {1, 0, 0, 0, 0, 0, 0, 0, 2, 2, 3, 3, 4};
+        {"(", "+", "-", "*", "/", "^"};
+int priority_stack[NUMBER_OF_STACK_CONTAINS] = {1, 2, 2, 3, 3, 4};
 
 char input[BUFFER_SIZE];
 char str[BUFFER_SIZE];
@@ -153,11 +153,23 @@ int word_is_number(char *word) {
 }
 
 int check_line() {
+    int number_right_bracket = 0;
+    int number_left_bracket = 0;
     for (int i = 0; i < length; i++) {
         if (!(word_is_number(buffer[i]) || is_good(buffer[i]))) {
             printf("Unknown expression: %s; program terminated\n", buffer[i]);
             exit(0);
         }
+        if (strcmp(buffer[i], "(") == 0) {
+            number_left_bracket++;
+        }
+        if (strcmp(buffer[i], ")") == 0) {
+            number_right_bracket++;
+        }
+    }
+    if (number_right_bracket - number_left_bracket != 0) {
+        printf("Incorrect number of brackets.\n");
+        exit(0);
     }
     return 1;
 }
