@@ -206,7 +206,12 @@ double calculate(int length, char **expression, double x) {
             break;
         }
     }
-    return stack_pop(&s);
+    double to_return = stack_pop(&s);
+    if (!is_empty(&s)) {
+        printf("Something wrong.\n");
+        exit(0);
+    }
+    return to_return;
 }
 
 double calculate_postfix_variable(int length, char **expression, double x) {
