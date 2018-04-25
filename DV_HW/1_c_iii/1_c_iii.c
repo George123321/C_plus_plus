@@ -14,9 +14,9 @@ char binary_operations[NUMBER_OF_BINARY][2] = {"+", "-", "*", "/", "^"};
 char unar_operations[NUMBER_OF_UNAR][6] = {"sqrt", "sin", "cos", "tan", "ln", "log10", "exp"};
 char stack_contain[NUMBER_OF_STACK_CONTAINS][6] =
         {"(", "sqrt", "sin", "cos", "tan", "ln", "log10", "exp", "+", "-", "*", "/", "^"};
-int priority_stack[NUMBER_OF_STACK_CONTAINS] = {1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 4};
+int priority_stack[NUMBER_OF_STACK_CONTAINS] = {1, 0, 0, 0, 0, 0, 0, 0, 2, 2, 3, 3, 4};
 
-
+char input[BUFFER_SIZE];
 char str[BUFFER_SIZE];
 int type_arr[BUFFER_SIZE];
 char buffer[BUFFER_SIZE][BUFFER_SIZE];
@@ -34,7 +34,7 @@ int is_good(char *elem) {
             return 1;
         }
     }
-    if (strcmp(elem, "x") == 0 | strcmp(elem, "(") == 0 | strcmp(elem, ")") == 0) {
+    if (strcmp(elem, "x") == 0 || strcmp(elem, "(") == 0 || strcmp(elem, ")") == 0) {
         return 1;
     }
     return 0;
@@ -42,7 +42,7 @@ int is_good(char *elem) {
 
 int is_in_one_char_elems(char *elem) {
     for (int i = 0; i < NUMBER_OF_BINARY; i++) {
-        if (strcmp(elem, binary_operations[i]) == 0 | strcmp(elem, "(") == 0 | strcmp(elem, ")") == 0) {
+        if (strcmp(elem, binary_operations[i]) == 0 || strcmp(elem, "(") == 0 || strcmp(elem, ")") == 0) {
             return 1;
         }
     }
@@ -70,13 +70,27 @@ int is_unar_operation(char *elem) {
 
 void read_line() {
     char c;
-    str[0] = '(';
+    input[0] = '(';
     int i = 1;
     while ((c = getchar()) != '\n') {
-        str[i] = c;
+        input[i] = c;
         i++;
     }
-    str[i] = ')';
+    input[i] = ')';
+    // проверим на унарный + -
+    int number_of_unar_min_and_plus = 0;
+    for (i = 0; i < strlen(input) - 1; i++) {
+        if (input[i] == '(' && (input[i + 1] == '+' || input[i + 1] == '-')) {
+            str[i + number_of_unar_min_and_plus] = input[i];
+            str[i + 1 + number_of_unar_min_and_plus] = '0';
+            str[i + 2 + number_of_unar_min_and_plus] = input[i + 1];
+            i++;
+            number_of_unar_min_and_plus++;
+        } else {
+            str[i + number_of_unar_min_and_plus] = input[i];
+        }
+    }
+    str[strlen(str)] = ')';
 
     for (i = 0; i < strlen(str); i++) {
         char elem[] = {str[i], '\0'};
@@ -115,21 +129,20 @@ int word_is_number(char *word) {
     if (word[0] == '.') {
         number_of_points++;
     }
-    if (!(isdigit(word[0]) | word[0] == '.')) {
+    if (!(isdigit(word[0]) || word[0] == '.')) {
         return 0;
     } else {
         if (strcmp(word, ".") == 0) { // на самом деле, костыль
             return 0;
         }
         for (int i = 1; i < strlen(word); i++) {
-            if (!(isdigit(word[i]) | word[i] == '.')) {
+            if (!(isdigit(word[i]) || word[i] == '.')) {
                 return 0;
             } else {
                 if (word[i] == '.') {
                     number_of_points++;
                 }
             }
-
         }
         if (number_of_points > 1) {
             return 0;
@@ -137,12 +150,11 @@ int word_is_number(char *word) {
             return 1;
         }
     }
-
 }
 
 int check_line() {
     for (int i = 0; i < length; i++) {
-        if (!(word_is_number(buffer[i]) | is_good(buffer[i]))) {
+        if (!(word_is_number(buffer[i]) || is_good(buffer[i]))) {
             printf("Unknown expression: %s; program terminated\n", buffer[i]);
             exit(0);
         }
@@ -170,16 +182,18 @@ void to_prefix() {
     for (int i = 0; i < length; i++) {
         if (strcmp(buffer[i], "(") == 0) {
             stack_push(&opStack, buffer[i]);
-        } else if (word_is_number(buffer[i]) | strcmp(buffer[i], "x") == 0) {
+        } else if (word_is_number(buffer[i]) || strcmp(buffer[i], "x") == 0) {
             strncpy(prefix[elem_number], buffer[i], strlen(buffer[i]));
             elem_number++;
         } else if (is_binary_operation(buffer[i])) {
             if (is_empty(&opStack)) {
                 stack_push(&opStack, buffer[i]);
-            } else if (priority_stack[index_in_array(opStack.head->s)] >
+            } else if (priority_stack[index_in_array(opStack.head->s)] >=
                        priority_stack[index_in_array(buffer[i])]) {
-                while (!(is_empty(&opStack) | strcmp(opStack.head->s, "(") == 0)) {
-                    strncpy(prefix[elem_number], stack_pop(&opStack), strlen(buffer[i]));
+                while (!(is_empty(&opStack) || strcmp(opStack.head->s, "(") == 0) &&
+                       priority_stack[index_in_array(opStack.head->s)] >= priority_stack[index_in_array(buffer[i])]) {
+                    char *to_write = stack_pop(&opStack);
+                    strncpy(prefix[elem_number], to_write, strlen(to_write));
                     elem_number++;
                 }
                 stack_push(&opStack, buffer[i]);
@@ -196,6 +210,11 @@ void to_prefix() {
                 elem_number++;
             }
             stack_pop(&opStack);
+            if (!is_empty(&opStack) && is_unar_operation(opStack.head->s)) {
+                char *to_stack = stack_pop(&opStack);
+                strncpy(prefix[elem_number], to_stack, strlen(to_stack));
+                elem_number++;
+            }
         }
     }
 
