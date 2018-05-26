@@ -48,7 +48,7 @@ void doMath(char *elem, struct Stack *st) {
                 break;
             case 4:
                 if (y <= 0) {
-                    if (x != floor(x)) { // если x не целый DONE: как проверить, что double целый
+                    if (x != round(x)) { // если x не целый DONE: как проверить, что double целый
                         stack_push(st, NAN);
                         printf("Pow Error\n");
                         return;
@@ -63,58 +63,61 @@ void doMath(char *elem, struct Stack *st) {
         for (int i = 0; i < 7; i++) {
             if (strcmp(elem, unar_operations[i]) == 0) {
                 type_of_unar_operation = i;
+                break;
             }
         }
-        if (st->size == 0) {
-            printf("The unar operator is applied to too few numbers (requires 1).\n");
-            stack_push(st, NAN);
-            return;
-        }
-        double x = stack_pop(st);
-        switch (type_of_unar_operation) {
-            case 0:
-                if (x < 0) {
-                    stack_push(st, NAN);
-                    printf("Pow Error\n");
-                    return;
-                }
-                stack_push(st, pow(x, 0.5));
-                break;
-            case 1:
-                stack_push(st, sin(x));
-                break;
-            case 2:
-                stack_push(st, cos(x));
-                break;
-            case 3:
-                if (cos(x) == 0) {
-                    stack_push(st, NAN);
-                    printf("Tan Error\n");
-                    return;
-                }
-                stack_push(st, tan(x));
-                break;
-            case 4:
-                if (x <= 0) {
-                    stack_push(st, NAN);
-                    printf("LOG Error\n");
-                    return;
-                }
-                stack_push(st, log(x));
-                break;
-            case 5:
-                if (x <= 0) {
-                    stack_push(st, NAN);
-                    printf("LOG Error\n");
-                    return;
-                }
-                stack_push(st, log10(x));
-                break;
-            case 6:
-                stack_push(st, exp(x));
-                break;
-            default:
-                break;
+        if (type_of_unar_operation != -1) {
+            if (st->size == 0) {
+                printf("The unar operator is applied to too few numbers (requires 1).\n");
+                stack_push(st, NAN);
+                return;
+            }
+            double x = stack_pop(st);
+            switch (type_of_unar_operation) {
+                case 0:
+                    if (x < 0) {
+                        stack_push(st, NAN);
+                        printf("Pow Error\n");
+                        return;
+                    }
+                    stack_push(st, pow(x, 0.5));
+                    break;
+                case 1:
+                    stack_push(st, sin(x));
+                    break;
+                case 2:
+                    stack_push(st, cos(x));
+                    break;
+                case 3:
+                    if (cos(x) == 0) {
+                        stack_push(st, NAN);
+                        printf("Tan Error\n");
+                        return;
+                    }
+                    stack_push(st, tan(x));
+                    break;
+                case 4:
+                    if (x <= 0) {
+                        stack_push(st, NAN);
+                        printf("LOG Error\n");
+                        return;
+                    }
+                    stack_push(st, log(x));
+                    break;
+                case 5:
+                    if (x <= 0) {
+                        stack_push(st, NAN);
+                        printf("LOG Error\n");
+                        return;
+                    }
+                    stack_push(st, log10(x));
+                    break;
+                case 6:
+                    stack_push(st, exp(x));
+                    break;
+                default:
+                    break;
+            }
         }
     }
     if (type_of_unar_operation == -1 && type_of_binary_operation == -1) {
@@ -309,7 +312,7 @@ int main() {
     int length = 0;
     char **expression = read_line(&length);
 
-    /*int num = 100;
+    int num = 1000;
 
     double *x = linspace(-15, 15, num);
     double *y = func_array(length, expression, x, num);
@@ -323,7 +326,7 @@ int main() {
         char *expr_ptr = expression[i];
         free(expr_ptr);
     }
-    free(expression);*/
-    printf("%lf\n", calculate_postfix(length, expression));
+    free(expression);
+    //printf("%lf\n", calculate_postfix(length, expression));
     return 0;
 }
