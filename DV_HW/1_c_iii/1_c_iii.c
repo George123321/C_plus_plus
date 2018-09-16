@@ -20,7 +20,7 @@ char input[BUFFER_SIZE];
 char str[BUFFER_SIZE];
 int type_arr[BUFFER_SIZE];
 char buffer[BUFFER_SIZE][BUFFER_SIZE];
-char prefix[BUFFER_SIZE][BUFFER_SIZE];
+char postfix[BUFFER_SIZE][BUFFER_SIZE];
 int length = 0;
 
 int is_good(char *elem) {
@@ -187,7 +187,7 @@ int index_in_array(const char *elem) {
     }
 }
 
-void to_prefix() {
+void to_postfix() {
     STACK opStack;
     stack_init(&opStack);
     int elem_number = 0;
@@ -195,7 +195,7 @@ void to_prefix() {
         if (strcmp(buffer[i], "(") == 0) {
             stack_push(&opStack, buffer[i]);
         } else if (word_is_number(buffer[i]) || strcmp(buffer[i], "x") == 0) {
-            strncpy(prefix[elem_number], buffer[i], strlen(buffer[i]));
+            strncpy(postfix[elem_number], buffer[i], strlen(buffer[i]));
             elem_number++;
         } else if (is_binary_operation(buffer[i])) {
             if (is_empty(&opStack)) {
@@ -205,7 +205,7 @@ void to_prefix() {
                 while (!(is_empty(&opStack) || strcmp(opStack.head->s, "(") == 0) &&
                        priority_stack[index_in_array(opStack.head->s)] >= priority_stack[index_in_array(buffer[i])]) {
                     char *to_write = stack_pop(&opStack);
-                    strncpy(prefix[elem_number], to_write, strlen(to_write));
+                    strncpy(postfix[elem_number], to_write, strlen(to_write));
                     elem_number++;
                 }
                 stack_push(&opStack, buffer[i]);
@@ -218,13 +218,13 @@ void to_prefix() {
         if (strcmp(buffer[i], ")") == 0) {
             while (strcmp(opStack.head->s, "(") != 0) {
                 char *to_stack = stack_pop(&opStack);
-                strncpy(prefix[elem_number], to_stack, strlen(to_stack));
+                strncpy(postfix[elem_number], to_stack, strlen(to_stack));
                 elem_number++;
             }
             stack_pop(&opStack);
             if (!is_empty(&opStack) && is_unar_operation(opStack.head->s)) {
                 char *to_stack = stack_pop(&opStack);
-                strncpy(prefix[elem_number], to_stack, strlen(to_stack));
+                strncpy(postfix[elem_number], to_stack, strlen(to_stack));
                 elem_number++;
             }
         }
@@ -235,10 +235,10 @@ void to_prefix() {
 int main() {
     read_line();
     check_line();
-    to_prefix();
+    to_postfix();
 
     for (int i = 0; i < length; i++) {
-        printf("%s ", prefix[i]);
+        printf("%s ", postfix[i]);
     }
     return 0;
 }
