@@ -64,7 +64,7 @@ void walk(short ref) {
                 if (r < -dV) {
                     xsite.insert(xsite.end(), xsite[i]);
                     nwalker++;
-                    Vsum += 2 * V(xsite[i]);
+                    Vsum += 2 * V(xsite[i]); // TODO: 2?
                 } else {
                     Vsum += V(xsite[i]);
                 }
