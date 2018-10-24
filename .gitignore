@@ -7,3 +7,6 @@
 *.blg
 *.idea
 cmake-build-debug
+SchrodingerEq/data_output
+SchrodingerEq/output
+*.ipynb_checkpoints/
