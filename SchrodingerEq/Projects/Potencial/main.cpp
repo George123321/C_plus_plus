@@ -115,7 +115,7 @@ void walk() {
         }
         Vref = V_ref_new / xsite.size();
 
-        if (f and trial > ntrial + 1 - 300) {
+        if (f) {
             for (int i = 0; i < xsite.size(); i++) {
                 fprintf(f, "%lf\n", xsite[i]);
             }
