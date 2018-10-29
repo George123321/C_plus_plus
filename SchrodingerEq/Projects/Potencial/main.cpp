@@ -4,7 +4,7 @@
 #include <ctime>
 
 #define N 1000000 // Number of particles
-#define ntrial 500 // The number of total evolutions
+#define ntrial 1000 // The number of total evolutions
 #define ds 0.1
 #define Nbar 20 // The number of samples
 #define k 1.0
@@ -81,8 +81,8 @@ void walk() {
                 } else {
                     xsite[i] = xsite[i] - ds;
                 }
+                Vmean += V(xsite[i]);
             }
-            Vmean += V(xsite[i]);
         }
         xsite.insert(xsite.end(), xsiteNew.begin(), xsiteNew.end());
         Vmean = Vmean / xsite.size();
@@ -128,7 +128,7 @@ void walk() {
         } else { printf("Something is wrong! Not NE\n"); }
 
         if ((trial + 1) % nave == 0) {
-            double perc = (double) trial / (double) ntrial * 100;
+            double perc = (double) (trial + 1) / (double) ntrial * 100;
             std::cout << perc << " percent of work completed" << std::endl;
         }
     }

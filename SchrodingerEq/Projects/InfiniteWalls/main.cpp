@@ -6,10 +6,10 @@
 #define N 1000000 // Number of particles
 #define ntrial 100000 // The number of total evolutions
 #define ds 0.01
-#define Nbar 20 // The number of samples
+#define Nbar 100 // The number of samples
 
-double left = -5;
-double right = 2;
+double left = -1;
+double right = 1;
 double a = 2 * 1.5;
 int nave = ntrial / Nbar;
 
@@ -30,11 +30,15 @@ void walk() {
     std::vector<double> xsite(N);
     double Vref = 0;
 
+
     std::mt19937 gen;
     std::uniform_real_distribution<> urd(0, 1);
 
-    for (int i = 0; i < xsite.size(); i++) {
-        xsite[i] = right - (right - left) * urd(gen);
+    {
+        #pragma omp parallel for
+        for (int i = 0; i < xsite.size(); i++) {
+            xsite[i] = right - (right - left) * urd(gen);
+        }
     }
 
     if (f) {
@@ -42,11 +46,15 @@ void walk() {
             fprintf(f, "%lf\n", xsite[i]);
         }
     }
+
     if (fNE) {
         fprintf(fNE, "%d,%f,%f\n", xsite.size(), Vref, Vref);
     }
 
+
     for (int trial = 0; trial < ntrial; trial++) {
+        {
+        #pragma omp parallel for
         for (int i = 0; i < xsite.size(); i++) {
             // Shift the pedestrian
             if (urd(gen) < 0.5) {
@@ -54,6 +62,9 @@ void walk() {
             } else {
                 xsite[i] = xsite[i] - ds;
             }
+        }}
+
+        for (int i = 0; i < xsite.size(); i++) {
             // Kill the pedestrian behind the barrier
             if (xsite[i] < -a/2 or xsite[i] > a/2){
                 xsite.erase(xsite.begin() + i);
@@ -73,11 +84,13 @@ void walk() {
                 }
             }
         } else if (dN < 0) {
+            {
             for (int i = 0; i < xsite.size(); i++) {
                 double r = urd(gen);
                 if (r < -dN / (N_current + 0.0)) {
                     xsiteNew.insert(xsiteNew.end(), xsite[i]);
                 }
+            }
             }
             xsite.insert(xsite.end(), xsiteNew.begin(), xsiteNew.end());
         }
