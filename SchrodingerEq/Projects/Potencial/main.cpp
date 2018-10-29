@@ -88,8 +88,8 @@ void walk() {
         Vmean = Vmean / xsite.size();
 
         double V_ref_new = 0;
-        int dN = xsite.size() - N;
-        int N_current = xsite.size();
+        long long int dN = xsite.size() - N;
+        long long int N_current = xsite.size();
         std::vector<double> xsiteNew1;
         if (dN >= 0) {
             for (int i = 0; i < xsite.size(); i++) {
